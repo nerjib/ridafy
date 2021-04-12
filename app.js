@@ -60,6 +60,12 @@ const upload = multer({
 });
 app.use('/api/v1/users', Users)
 
+app.post('/hhh',(req,res)=>{
+    res.json({
+        h:req.body.name
+    })
+})
+
 app.get('/',(req,res)=>{
     res.json({
         h:'hi'

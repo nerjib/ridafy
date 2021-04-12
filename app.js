@@ -54,7 +54,7 @@ const upload = multer({
   storage,
   fileFilter,
 });
-app.use('users', Users)
+app.use('/users', Users)
 
 app.get('/',(req,res)=>{
     res.json({

@@ -14,6 +14,10 @@ const app=express();
 http.createServer(app)
 app.use(cors());
 
+// Parsers for POST data
+app.use(express.json({limit: '20mb'}));
+app.use(express.urlencoded({ extended: false, limit: '20mb' }));
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 

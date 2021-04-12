@@ -7,6 +7,7 @@ const path = require('path');
 const cloudinary = require('cloudinary');
 const multer = require('multer');
 const dotenv = require('dotenv');
+const Users = require('./src/controllers/users')
 
 
 const app=express();
@@ -49,5 +50,8 @@ app.get('/',(req,res)=>{
         h:'hi'
     })
 })
+
+app.get('users', Users)
+
 
 module.exports = app;

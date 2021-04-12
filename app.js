@@ -8,6 +8,8 @@ const cloudinary = require('cloudinary');
 const multer = require('multer');
 const dotenv = require('dotenv');
 const Users = require('./src/controllers/users')
+const Books = require('./src/controllers/books')
+
 
 
 const app=express();
@@ -59,6 +61,8 @@ const upload = multer({
   fileFilter,
 });
 app.use('/api/v1/users', Users)
+app.use('/api/v1/books', Books)
+
 
 app.post('/hhh',(req,res)=>{
     res.json({

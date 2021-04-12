@@ -31,4 +31,37 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.post('/', async (req, res) => {
+    const createUser = `INSERT INTO
+    users (name,email,password,phone_no,gender,time)
+    VALUES ($1, $2,$3,$4,$5,$6) RETURNING *`;
+  
+  const values = [
+  req.body.name,
+  req.body.email,
+  req.body.password,
+  req.body.phone_no,
+  req.body.gender,
+  moment(new Date()),
+  ];
+  try {
+  const { rows } = await db.query(createUser, values);
+  // console.log(rows);
+  const data = {
+    status: 'success',
+    data: {
+      message: 'User added successfully​',
+      Name: rows[0].name,
+      Email: rows[0].email,
+      phone: rows[0].phone_no,
+    },
+  };
+  return res.status(201).send(data);
+  } catch (error) {
+  return res.status(400).send(error);
+  }
+  
+  });
+ 
+
 module.exports = router;

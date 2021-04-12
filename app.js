@@ -51,7 +51,7 @@ app.get('/',(req,res)=>{
     })
 })
 
-app.get('users', Users)
+app.use('users', Users)
 
 
 module.exports = app;

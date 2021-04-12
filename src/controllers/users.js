@@ -32,13 +32,10 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    res.json({
-        h:req.body.name
-    })/*
+    
     const createUser = `INSERT INTO
     users (name,email,password,phone_no,gender,time)
-    VALUES ($1, $2,$3,$4,$5,$6) RETURNING *`;
-  
+    VALUES ($1, $2,$3,$4,$5,$6) RETURNING *`;  
   const values = [
   req.body.name,
   req.body.email,
@@ -63,7 +60,7 @@ router.post('/', async (req, res) => {
   } catch (error) {
   return res.status(400).send(error);
   }
-  */
+  
   });
  
 

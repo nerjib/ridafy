@@ -9,7 +9,7 @@ const dotenv = require('dotenv');
 const router = express.Router();
 
 
-const db = require('../db/index');
+const db = require('../dbs/index');
 
 
 async function createChapter(req, res, audioUrl) {

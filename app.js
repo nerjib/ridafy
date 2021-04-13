@@ -13,7 +13,7 @@ const AuthUsers = require('./src/auth/authUsers')
 const AuthSignIn = require('./src/auth/authSignIn')
 const Auth = require('./src/auth/auth')
 const Authors = require('./src/controllers/authors')
-const Chapters = require('./src/controllers/chapter')
+//const Chapters = require('./src/controllers/chapter')
 const AddChapters = require('./src/controllers/addChapter')
 
 

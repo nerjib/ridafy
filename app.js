@@ -49,30 +49,30 @@ app.use((req, res, next) => {
 app.use(cookieParser());
 
 const storage = multer.diskStorage({
-  distination: function (req, file, cb) {
-    cb(null, './src');
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  },
-});
-cloudinary.config({
-  cloud_name: process.env.cloud_name,
-  api_key: process.env.api_key,
-  api_secret: process.env.api_secret,
-});
-const fileFilter = (req, file, cb) => {
-  if (file.mimetype === 'image/gif') {
-    cb(null, true);
-  } else {
-    cb(new Error('image is not gif'), false);
-  }
-};
-const upload = multer({
-  storage,
-  fileFilter,
-});
-
+    distination: function (req, file, cb) {
+      cb(null, './src');
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname);
+    },
+  });
+  cloudinary.config({
+    cloud_name: process.env.cloud_name,
+    api_key: process.env.api_key,
+    api_secret: process.env.api_secret,
+  });
+  const fileFilter = (req, file, cb) => {
+    if (file.mimetype === 'image/gif'||'image/png') {
+      cb(null, true);
+    } else {
+      cb(new Error('image is not gif'), false);
+    }
+  };
+  
+  const upload = multer({
+    storage,
+    fileFilter,
+  });
 
 app.use('/api/v1/users',Auth.verifyToken, Users)
 app.use('/api/v1/auth/signin', AuthSignIn)

@@ -13,7 +13,7 @@ const AuthUsers = require('./src/auth/authUsers')
 const AuthSignIn = require('./src/auth/authSignIn')
 const Auth = require('./src/auth/auth')
 const Authors = require('./src/controllers/authors')
-//const Chapters = require('./src/controllers/chapter')
+const Chapters = require('./src/controllers/chapter')
 const AddChapters = require('./src/controllers/addChapter')
 
 
@@ -99,7 +99,7 @@ app.post('/api/v1/addchapter', upload.single('image'), (req, res) => {
          console.log(result.secure_url)
         // res.send({imgurl:result.secure_url})
         AddChapters.createChapter(req,res,result.secure_url);
-       },{ resource_type: "auto" });
+       },{ resource_type: "auto", public_id: "my_folder/my_sub_folder" });
      });
 
 

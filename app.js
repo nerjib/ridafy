@@ -20,6 +20,7 @@ const AddChapters = require('./src/controllers/addChapter')
 
 
 
+dotenv.config();
 
 
 

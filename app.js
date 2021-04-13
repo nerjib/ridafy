@@ -11,6 +11,8 @@ const Users = require('./src/controllers/users')
 const Books = require('./src/controllers/books')
 const AuthUsers = require('./src/auth/authUsers')
 const AuthSignIn = require('./src/auth/authSignIn')
+const Auth = require('./src/auth/auth')
+
 
 
 
@@ -63,7 +65,7 @@ const upload = multer({
   storage,
   fileFilter,
 });
-app.use('/api/v1/users', Users)
+app.use('/api/v1/users',Auth.verifyToken, Users)
 app.use('/api/v1/auth/signin', AuthSignIn)
 app.use('/api/v1/auth/signup', AuthUsers)
 

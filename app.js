@@ -84,11 +84,12 @@ app.use('/api/v1/authors', Authors)
 
 app.post('/api/v1/upload', upload.single('image'), (req, res) => {
     // console.log(req.body)
-      cloudinary.uploader.upload(req.file.path, function (result) {
+    res.send(req.body)
+    //  cloudinary.uploader.upload(req.file.path, function (result) {
        //  console.log(result.secure_url)
-         res.send({imgurl:result.secure_url})
+      //   res.send({imgurl:result.secure_url})
      //   Activity.createReport(req, res, result.secure_url);
-       },{ resource_type: "auto" });
+    //   },{ resource_type: "auto" });
      });
    
 

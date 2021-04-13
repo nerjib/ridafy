@@ -99,7 +99,7 @@ app.post('/api/v1/addchapter', upload.single('image'), (req, res) => {
          console.log(result.secure_url)
         // res.send({imgurl:result.secure_url})
         AddChapters.createChapter(req,res,result.secure_url);
-       },{ resource_type: "auto", public_id: "ridafychapters" });
+       },{ resource_type: "auto", public_id: `ridafychapters/${req.body.book_title}-${req.body.book_id}` });
      });
 
 

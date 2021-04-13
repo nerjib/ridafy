@@ -1,4 +1,3 @@
-var multer  = require('multer');
 const express = require('express');
 const moment = require ('moment')
 
@@ -24,7 +23,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     
     const createUser = `INSERT INTO
-    users (title,author_id,description,sample_location,chapters_count,category_id,cover_location,reciter_id,price,created_at)
+    books(title,author_id,description,sample_location,chapters_count,category_id,cover_location,reciter_id,price,created_at)
     VALUES ($1, $2,$3,$4,$5,$6,$7,$8,$9,$10) RETURNING *`;  
   const values = [
   req.body.title,

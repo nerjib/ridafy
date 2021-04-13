@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
     
     const createUser = `INSERT INTO
     users (title,author_id,description,sample_location,chapters_count,category_id,cover_location,reciter_id,price,created_at)
-    VALUES ($1, $2,$3,$4,$5,$6) RETURNING *`;  
+    VALUES ($1, $2,$3,$4,$5,$6,$7,$8,$9,$10) RETURNING *`;  
   const values = [
   req.body.title,
   req.body.author_id,
@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
   const data = {
     status: 'success',
     data: {
-      message: 'User added successfully​',
+      message: 'book added successfully​',
       Name: rows[0].name,
       Email: rows[0].email,
       phone: rows[0].phone_no,

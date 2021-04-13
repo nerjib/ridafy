@@ -9,6 +9,9 @@ const multer = require('multer');
 const dotenv = require('dotenv');
 const Users = require('./src/controllers/users')
 const Books = require('./src/controllers/books')
+const AuthUsers = require('./src/auth/authUsers')
+const AuthSignIn = require('./src/auth/authSignIn')
+
 
 
 
@@ -61,6 +64,10 @@ const upload = multer({
   fileFilter,
 });
 app.use('/api/v1/users', Users)
+app.use('/api/v1/auth/signin', AuthSignIn)
+app.use('/api/v1/auth/signup', AuthUsers)
+
+
 app.use('/api/v1/books', Books)
 
 

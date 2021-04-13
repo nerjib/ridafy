@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
     hashPassword,
     req.body.gender,
     moment(new Date()),
-    req.body.phone_no,
+    req.body.phone_no
   ];
 
   try {

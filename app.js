@@ -82,6 +82,16 @@ app.use('/api/v1/auth/signup', AuthUsers)
 app.use('/api/v1/books', Books)
 app.use('/api/v1/authors', Authors)
 
+app.post('/api/v1/upload', upload.single('image'), (req, res) => {
+    // console.log(req.body)
+      cloudinary.uploader.upload(req.file.path, function (result) {
+       //  console.log(result.secure_url)
+         res.send({imgurl:result.secure_url})
+     //   Activity.createReport(req, res, result.secure_url);
+       },{ resource_type: "auto" });
+     });
+   
+
 app.post('/api/v1/addchapter', upload.single('image'), (req, res) => {
     // console.log(req.body)
       cloudinary.uploader.upload(req.file.path, function (result) {

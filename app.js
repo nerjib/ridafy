@@ -72,6 +72,8 @@ const upload = multer({
   storage,
   fileFilter,
 });
+
+
 app.use('/api/v1/users',Auth.verifyToken, Users)
 app.use('/api/v1/auth/signin', AuthSignIn)
 app.use('/api/v1/auth/signup', AuthUsers)
@@ -80,7 +82,7 @@ app.use('/api/v1/auth/signup', AuthUsers)
 app.use('/api/v1/books', Books)
 app.use('/api/v1/authors', Authors)
 
-app.post('/api/v1/addchapter', upload.single('audio'), (req, res) => {
+app.post('/api/v1/addchapter', upload.single('image'), (req, res) => {
     // console.log(req.body)
       cloudinary.uploader.upload(req.file.path, function (result) {
          console.log(result.secure_url)

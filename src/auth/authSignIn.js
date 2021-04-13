@@ -22,11 +22,11 @@ router.post('/', async (req, res) => {
       return res.status(402).send({ message: 'user not found, check the username' });
     }
     // console.log(rows[0].pword);
-    if (!Helper.comparePassword(rows[0].pword, req.body.password)) {
+    if (!Helper.comparePassword(rows[0].password, req.body.password)) {
       return res.status(403).send({ message: 'The credentials you provided is incorrect' });
     }
     const token = Helper.generateToken(rows[0].id, rows[0].account_role);
-    const response = {
+    const response = {  
       status: 'success',
       data: {
         token,

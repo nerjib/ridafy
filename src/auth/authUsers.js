@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
 
   try {
     const { rows } = await db.query(createQuery, values);
-    const token = Helper.generateToken(rows[0].id,'users');
+    const token = Helper.generateToken(rows[0].id,'user');
     // console.log(`this is the token ${token}`);
     const response = {
       status: 'success',

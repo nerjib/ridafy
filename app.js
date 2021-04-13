@@ -82,7 +82,7 @@ app.use('/api/v1/auth/signup', AuthUsers)
 app.use('/api/v1/books', Books)
 app.use('/api/v1/authors', Authors)
 
-app.post('/api/v1/upload',  (req, res) => {
+app.use('/api/v1/upload',  (req, res) => {
     // console.log(req.body)
     res.send(req.body)
     //  cloudinary.uploader.upload(req.file.path, function (result) {

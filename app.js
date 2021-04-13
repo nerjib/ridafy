@@ -12,6 +12,8 @@ const Books = require('./src/controllers/books')
 const AuthUsers = require('./src/auth/authUsers')
 const AuthSignIn = require('./src/auth/authSignIn')
 const Auth = require('./src/auth/auth')
+const Authors = require('./src/controllers/authors')
+
 
 
 
@@ -71,6 +73,8 @@ app.use('/api/v1/auth/signup', AuthUsers)
 
 
 app.use('/api/v1/books', Books)
+app.use('/api/v1/authors', Authors)
+
 
 
 app.post('/hhh',(req,res)=>{

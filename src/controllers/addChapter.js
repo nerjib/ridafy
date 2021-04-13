@@ -15,7 +15,7 @@ const db = require('../dbs/index');
 async function createChapter(req, res, audioUrl) {
     const createUser = `INSERT INTO
     chapters (chapter_title,audio_location,book_id,created_at)
-    VALUES ($1, $2,$3,$4,$5,$6) RETURNING *`;  
+    VALUES ($1, $2,$3,$4) RETURNING *`;  
   const values = [
   req.body.chapter_title,
   audioUrl,

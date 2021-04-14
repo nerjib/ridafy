@@ -21,6 +21,8 @@ const Category = require('./src/controllers/categories')
 const WishLists = require('./src/controllers/whishlists')
 const Ratings = require('./src/controllers/ratings')
 const Reciters = require('./src/controllers/reciters')
+const Reviews = require('./src/controllers/reviews')
+
 
 
 
@@ -98,6 +100,8 @@ app.use('/api/v1/category', Category)
 app.use('/api/v1/wishlists', WishLists)
 app.use('/api/v1/ratings', Ratings)
 app.use('/api/v1/reciters', Reciters)
+app.use('/api/v1/reviews', Reviews)
+
 
 
 

@@ -60,8 +60,8 @@ router.get('/', async (req, res) => {
        },{ resource_type: "auto", public_id: `ridafychapters/${req.body.chapter_title}-${req.body.book_id}` });
      });
 */
-router.post('/', upload.single('image'), async (req, res) => {
-    cloudinary.uploader.upload(req.file.path, function (result) {
+router.post('/', upload.single('image'),  (req, res) => {
+    cloudinary.uploader.upload(req.file.path, async (result)=> {
     
     const createUser = `INSERT INTO
     books(title,author_id,description,sample_location,chapters_count,category_id,cover_location,reciter_id,price,created_at)

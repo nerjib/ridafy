@@ -5,7 +5,7 @@ const router = express.Router();
 const db = require('../dbs/index');
 
 router.get('/', async (req, res) => {
-  const getAllQ = 'SELECT * FROM chapters';
+  const getAllQ = 'SELECT * FROM payments';
   try {
     // const { rows } = qr.query(getAllQ);
     const { rows } = await db.query(getAllQ);
@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  const text = 'SELECT * FROM chapters WHERE id = $1';
+  const text = 'SELECT * FROM payments WHERE id = $1';
   // console.log(req.params.id);
   try {
     const { rows } = await db.query(text, [req.params.id]);
@@ -33,14 +33,14 @@ router.get('/:id', async (req, res) => {
 });
 
 
-router.post('/gaijshvsffajxgf', async (req, res) => {
+    
+router.post('/', async (req, res) => {
     
     const createUser = `INSERT INTO
-    chapters (chapter_title,audio_location,book_id,created_at)
-    VALUES ($1, $2,$3,$4,$5,$6) RETURNING *`;  
+    payments (user_id,book_id,created_at)
+    VALUES ($1,$2,$3) RETURNING *`;  
   const values = [
-  req.body.chapter_title,
-  req.body.audio_location,
+  req.body.user_id,
   req.body.book_id,
   moment(new Date())
   ];
@@ -50,9 +50,9 @@ router.post('/gaijshvsffajxgf', async (req, res) => {
   const data = {
     status: 'success',
     data: {
-      message: 'Chapter added successfully​',
-      Name: rows[0].chapter_title,
-      Email: rows[0].audio_location,
+      message: 'Payments added successfully​',
+      User_id: rows[0].user_id,
+      Book_id: rows[0].book_id,
     },
   };
   return res.status(201).send(data);

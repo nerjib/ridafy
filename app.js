@@ -15,6 +15,8 @@ const Auth = require('./src/auth/auth')
 const Authors = require('./src/controllers/authors')
 const Chapters = require('./src/controllers/chapter')
 const AddChapters = require('./src/controllers/addChapter')
+const Payments = require('./src/controllers/payments')
+
 
 
 
@@ -81,17 +83,11 @@ app.use('/api/v1/auth/signup', AuthUsers)
 
 app.use('/api/v1/books', Books)
 app.use('/api/v1/authors', Authors)
+app.use('/api/v1/chapters', Chapters)
+app.use('/api/v1/payments', Payments)
 
-app.use('/api/v1/upload',  (req, res) => {
-    // console.log(req.body)
-    res.send(req.body)
-    //  cloudinary.uploader.upload(req.file.path, function (result) {
-       //  console.log(result.secure_url)
-      //   res.send({imgurl:result.secure_url})
-     //   Activity.createReport(req, res, result.secure_url);
-    //   },{ resource_type: "auto" });
-     });
-   
+
+
 
 app.post('/api/v1/addchapter', upload.single('image'), (req, res) => {
     // console.log(req.body)

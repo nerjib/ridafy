@@ -26,7 +26,7 @@ router.get('/:id', async (req, res) => {
     if (!rows[0]) {
       return res.status(404).send({ message: 'User not found' });
     }
-    return res.status(200).send(rows[0]);
+    return res.status(200).send(rows);
   } catch (error) {
     return res.status(400).send(error);
   }

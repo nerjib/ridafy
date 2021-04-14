@@ -19,14 +19,14 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  const text = 'SELECT * FROM chapters WHERE id = $1';
+  const text = 'SELECT * FROM chapters WHERE book_id = $1';
   // console.log(req.params.id);
   try {
     const { rows } = await db.query(text, [req.params.id]);
     if (!rows[0]) {
       return res.status(404).send({ message: 'User not found' });
     }
-    return res.status(200).send(rows[0]);
+    return res.status(200).send(rows);
   } catch (error) {
     return res.status(400).send(error);
   }

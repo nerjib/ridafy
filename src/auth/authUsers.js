@@ -21,7 +21,7 @@ let transporter = nodemailer.createTransport({
 router.get('/mail', function(res,req){
     
       // send mail with defined transport object
-      let info = await transporter.sendMail({
+      let info =  transporter.sendMail({
         from: '"Ridafy " <test@nklere.com.ng>', // sender address
         to: 'kabirnajib0@gmail.com', // list of receivers
         subject: "Hello ", // Subject line

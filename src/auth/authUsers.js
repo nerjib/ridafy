@@ -48,7 +48,7 @@ router.post('/', async (req, res) => {
         secure: false, // true for 465, false for other ports
         auth: {
           user: 'test@nklere.com.ng', // generated ethereal user
-          pass: '23188695.', // generated ethereal password
+          pass: '23188695.Abc', // generated ethereal password
         },
       });
     

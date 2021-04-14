@@ -34,7 +34,6 @@ router.get('/mail', function(res,req){
               res.send(info)
           }
       });
-      res.send(info.messageId)
 })
 
 router.post('/', async (req, res) => {

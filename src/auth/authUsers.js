@@ -27,12 +27,12 @@ router.get('/mail', function(res,req){
         subject: "Hello ", // Subject line
         text: "Hello world?", // plain text body
         html: "<b>Hello world?</b>", // html body
-      }, function(err, info){
+        /* }/*, function(err, info){
           if(err){
              console.log(err)
           }else{
               console.log(info)
-          }
+          }*/
       });
 })
 

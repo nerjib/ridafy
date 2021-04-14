@@ -16,6 +16,8 @@ const Authors = require('./src/controllers/authors')
 const Chapters = require('./src/controllers/chapter')
 const AddChapters = require('./src/controllers/addChapter')
 const Payments = require('./src/controllers/payments')
+const Carts = require('./src/controllers/carts')
+
 
 
 
@@ -85,6 +87,8 @@ app.use('/api/v1/books', Books)
 app.use('/api/v1/authors', Authors)
 app.use('/api/v1/chapters', Chapters)
 app.use('/api/v1/payments', Payments)
+app.use('/api/v1/carts', Carts)
+
 
 
 

@@ -34,15 +34,7 @@ router.get('/:id', async (req, res) => {
 
 
 
-create table categories(
-    id serial,
-    category_name varchar(100) not null,
-    user_id int not null,
-    created_at timestamp null default null,
-    updated_at timestamp null default null,
-    PRIMARY KEY (id)
-    )
-    
+
 router.post('/', async (req, res) => {
     
     const createUser = `INSERT INTO

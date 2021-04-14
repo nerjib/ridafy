@@ -29,9 +29,9 @@ router.get('/mail', function(res,req){
         html: "<b>Hello world?</b>", // html body
       }, function(err, info){
           if(err){
-              res.send(err)
+             console.log(err)
           }else{
-              res.send(info)
+              console.log(info)
           }
       });
 })

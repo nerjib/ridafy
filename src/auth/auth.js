@@ -10,7 +10,7 @@ async function verifyToken(req, res, next) {
    // return res.status(400).send('error');
 
   const token = req.headers['token'] || req.cookies.token;
-  return res.status(400).send(token);
+//  return res.status(400).send(token);
   if (!token) {
     return res.status(400).send({ message: 'Token is not provided' });
   }

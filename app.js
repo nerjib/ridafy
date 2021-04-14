@@ -17,7 +17,7 @@ const Chapters = require('./src/controllers/chapter')
 const AddChapters = require('./src/controllers/addChapter')
 const Payments = require('./src/controllers/payments')
 const Carts = require('./src/controllers/carts')
-
+const Category = require('./src/controllers/categories')
 
 
 
@@ -88,6 +88,8 @@ app.use('/api/v1/authors', Authors)
 app.use('/api/v1/chapters', Chapters)
 app.use('/api/v1/payments', Payments)
 app.use('/api/v1/carts', Carts)
+app.use('/api/v1/category', Category)
+
 
 
 

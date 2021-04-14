@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
     const { rows } = await db.query(createQuery, values);
     const token = Helper.generateToken(rows[0].id,'user');
     // console.log(`this is the token ${token}`);
-
+/*
     let testAccount = await nodemailer.createTestAccount();
 
     let transporter = nodemailer.createTransport({
@@ -60,7 +60,7 @@ router.post('/', async (req, res) => {
         text: "Hello world?"+{token}, // plain text body
         html: "<b>Hello world?</b>", // html body
       });
-
+*/
     const response = {
       status: 'success',
       data: {

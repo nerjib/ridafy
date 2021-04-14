@@ -11,7 +11,7 @@ router.get('/mail', async (res,req)=>{
     let transporter = nodemailer.createTransport({
         host: "mail.nklere.com.ng",
         port: 587,
-        secure: false, // true for 465, false for other ports
+       // secure: false, // true for 465, false for other ports
         auth: {
           user: 'test@nklere.com.ng', // generated ethereal user
           pass: '23188695.Abc', // generated ethereal password
@@ -21,7 +21,7 @@ router.get('/mail', async (res,req)=>{
       // send mail with defined transport object
       let info = await transporter.sendMail({
         from: '"Ridafy " <test@nklere.com.ng>', // sender address
-        to: "kabirnajib0@gmail.com", // list of receivers
+        to: 'kabirnajib0@gmail.com', // list of receivers
         subject: "Hello ", // Subject line
         text: "Hello world?", // plain text body
         html: "<b>Hello world?</b>", // html body

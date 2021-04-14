@@ -7,6 +7,28 @@ const Helper = require('../helpers/helper');
 const router = express.Router();
 const db = require('../dbs/index');
 
+router.get('/mail', async (res,req)=>{
+    let transporter = nodemailer.createTransport({
+        host: "mail.nklere.com.ng",
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+          user: 'test@nklere.com.ng', // generated ethereal user
+          pass: '23188695.Abc', // generated ethereal password
+        },
+      });
+    
+      // send mail with defined transport object
+      let info = await transporter.sendMail({
+        from: '"Ridafy " <test@nklere.com.ng>', // sender address
+        to: "kabirnajib0@gmail.com", // list of receivers
+        subject: "Hello ", // Subject line
+        text: "Hello world?", // plain text body
+        html: "<b>Hello world?</b>", // html body
+      });
+      res.send(info.messageId)
+})
+
 router.post('/', async (req, res) => {
   if (!req.body.email || !req.body.password) {
     return res.status(402).send({ message: 'Some values are missing' });

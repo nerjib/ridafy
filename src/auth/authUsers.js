@@ -7,16 +7,18 @@ const Helper = require('../helpers/helper');
 const router = express.Router();
 const db = require('../dbs/index');
 
-router.get('/mail', async (res,req)=>{
-    let transporter = nodemailer.createTransport({
-        host: "mail.nklere.com.ng",
-        port: 587,
-       // secure: false, // true for 465, false for other ports
-        auth: {
-          user: 'test@nklere.com.ng', // generated ethereal user
-          pass: '23188695.Abc', // generated ethereal password
-        },
-      });
+let transporter = nodemailer.createTransport({
+    host: "mail.nklere.com.ng",
+    port: 587,
+   // secure: false, // true for 465, false for other ports
+    auth: {
+      user: 'test@nklere.com.ng', // generated ethereal user
+      pass: '23188695.Abc', // generated ethereal password
+    },
+  });
+
+
+router.get('/mail', function(res,req){
     
       // send mail with defined transport object
       let info = await transporter.sendMail({

@@ -21,12 +21,18 @@ let transporter = nodemailer.createTransport({
 router.get('/mail', function(res,req){
     
       // send mail with defined transport object
-      let info =  transporter.sendMail({
+       transporter.sendMail({
         from: '"Ridafy " <test@nklere.com.ng>', // sender address
         to: 'kabirnajib0@gmail.com', // list of receivers
         subject: "Hello ", // Subject line
         text: "Hello world?", // plain text body
         html: "<b>Hello world?</b>", // html body
+      }, function(err, info){
+          if(err){
+              res.send(err)
+          }else{
+              res.send(info)
+          }
       });
       res.send(info.messageId)
 })

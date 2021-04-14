@@ -87,20 +87,20 @@ const storage = multer.diskStorage({
   });
 
 app.use('/api/v1/users',Auth.verifyToken, Users)
-app.use('/api/v1/auth/signin', AuthSignIn)
-app.use('/api/v1/auth/signup', AuthUsers)
+app.use('/api/v1/auth/signin',Auth.verifyToken, AuthSignIn)
+app.use('/api/v1/auth/signup', Auth.verifyToken,AuthUsers)
 
 
-app.use('/api/v1/books', Books)
-app.use('/api/v1/authors', Authors)
-app.use('/api/v1/chapters', Chapters)
-app.use('/api/v1/payments', Payments)
-app.use('/api/v1/carts', Carts)
-app.use('/api/v1/category', Category)
-app.use('/api/v1/wishlists', WishLists)
-app.use('/api/v1/ratings', Ratings)
-app.use('/api/v1/reciters', Reciters)
-app.use('/api/v1/reviews', Reviews)
+app.use('/api/v1/books', Auth.verifyToken,Books)
+app.use('/api/v1/authors',Auth.verifyToken, Authors)
+app.use('/api/v1/chapters',Auth.verifyToken, Chapters)
+app.use('/api/v1/payments',Auth.verifyToken, Payments)
+app.use('/api/v1/carts', Auth.verifyToken,Carts)
+app.use('/api/v1/category',Auth.verifyToken, Category)
+app.use('/api/v1/wishlists',Auth.verifyToken, WishLists)
+app.use('/api/v1/ratings', Auth.verifyToken,Ratings)
+app.use('/api/v1/reciters',Auth.verifyToken, Reciters)
+app.use('/api/v1/reviews', Auth.verifyToken,Reviews)
 
 
 

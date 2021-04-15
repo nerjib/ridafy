@@ -42,6 +42,17 @@ const db = require('../dbs/index');
 
 
             router.get('/kk', async (req, res) => {
+
+                const transporter = nodemailer.createTransport({
+                    host: 'smtp.ethereal.email',
+                    port: 587,
+                   // secure: false,
+                    auth: {
+                        user: 'nicolas.berge@ethereal.email',
+                        pass: 'smHU47bW6R5JgbdKPN'
+                    }
+                });
+                
                 return res.status(201).send('rows');
 /*
                 const getAllQ = 'SELECT * FROM users';

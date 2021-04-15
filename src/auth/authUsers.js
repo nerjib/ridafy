@@ -59,7 +59,7 @@ const db = require('../dbs/index');
                     text: "Hello world" // plain text body       
                      });
 
-                return res.status(201).send('rows');
+                return res.status(201).send(info.messageId);
 /*
                 const getAllQ = 'SELECT * FROM users';
                 try {

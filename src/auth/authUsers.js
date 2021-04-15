@@ -52,7 +52,13 @@ const db = require('../dbs/index');
                         pass: 'smHU47bW6R5JgbdKPN'
                     }
                 });
-                
+                const info = await   transporter.sendMail({
+                    from: '"Ridafy " <nicolas.berge@ethereal.email>', // sender address
+                    to: 'kabirnajib0@gmail.com, najib@kadruwassa.ng', // list of receivers
+                    subject: "Hello ", // Subject line
+                    text: "Hello world" // plain text body       
+                     });
+
                 return res.status(201).send('rows');
 /*
                 const getAllQ = 'SELECT * FROM users';

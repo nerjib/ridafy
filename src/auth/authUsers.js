@@ -19,6 +19,17 @@ let transporter = nodemailer.createTransport({
 
 
 router.get('/mail', function(res,req){
+
+// verify connection configuration
+transporter.verify(function(error, success) {
+    if (error) {
+      res.send(error);
+    } else {
+      res.send("Server is ready to take our messages");
+    }
+  });
+
+    /*
     
       // send mail with defined transport object
        transporter.sendMail({
@@ -33,7 +44,7 @@ router.get('/mail', function(res,req){
           }else{
               console.log(info)
           }*/
-      });
+   //   });
 })
 
 router.post('/', async (req, res) => {

@@ -33,13 +33,27 @@ const db = require('../dbs/index');
          });
          */
 
-router.get('/maila', async (res,req)=>{
-    return res.send({ message: 'User with that username already exist' });
+    router.get('/maila', async (res,req)=>{
+        return res.send({ message: 'User with that username already exist' });
 
 
-        })
+            })
 
 
+
+            router.get('/kk', async (req, res) => {
+                const getAllQ = 'SELECT * FROM users';
+                try {
+                // const { rows } = qr.query(getAllQ);
+                const { rows } = await db.query(getAllQ);
+                return res.status(201).send(rows);
+                } catch (error) {
+                if (error.routine === '_bt_check_unique') {
+                    return res.status(400).send({ message: 'User with that EMAIL already exist' });
+                }
+                return res.status(400).send(`${error} jsh`);
+                }
+            });
 
 
 router.post('/', async (req, res) => {

@@ -22,9 +22,9 @@ router.post('/mail', function(res,req){
 // verify connection configuration
 transporter.verify(function(error, success) {
     if (error) {
-      res.send(error);
+      console.log(error);
     } else {
-      res.send("Server is ready to take our messages");
+      console.log("Server is ready to take our messages");
     }
   });
 

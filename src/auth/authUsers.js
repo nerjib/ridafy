@@ -42,6 +42,8 @@ const db = require('../dbs/index');
 
 
             router.get('/kk', async (req, res) => {
+                return res.status(201).send('rows');
+/*
                 const getAllQ = 'SELECT * FROM users';
                 try {
                 // const { rows } = qr.query(getAllQ);
@@ -53,6 +55,7 @@ const db = require('../dbs/index');
                 }
                 return res.status(400).send(`${error} jsh`);
                 }
+                */
             });
 
 

@@ -10,7 +10,7 @@ const db = require('../dbs/index');
 
 
 
-router.post('/mail', function(res,req){
+router.post('/mail', async (res,req)=>{
     const transporter = nodemailer.createTransport({
         host: 'smtp.ethereal.email',
         port: 587,
@@ -19,8 +19,9 @@ router.post('/mail', function(res,req){
             pass: 'smHU47bW6R5JgbdKPN'
         }
     });
+
 // verify connection configuration
-transporter.verify(function(error, success) {
+await transporter.verify(function(error, success) {
     if (error) {
       console.log(error);
     } else {

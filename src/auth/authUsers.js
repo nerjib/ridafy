@@ -7,15 +7,14 @@ const Helper = require('../helpers/helper');
 const router = express.Router();
 const db = require('../dbs/index');
 
-let transporter = nodemailer.createTransport({
-    host: "mail.nklere.com.ng",
+const transporter = nodemailer.createTransport({
+    host: 'smtp.ethereal.email',
     port: 587,
-   // secure: false, // true for 465, false for other ports
     auth: {
-      user: 'test@nklere.com.ng', // generated ethereal user
-      pass: '23188695.Abc', // generated ethereal password
-    },
-  });
+        user: 'nicolas.berge@ethereal.email',
+        pass: 'smHU47bW6R5JgbdKPN'
+    }
+});
 
 
 router.get('/mail', function(res,req){

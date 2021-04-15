@@ -34,7 +34,8 @@ router.post('/mail', async (res,req)=>{
        
          });
          
-         res.setEncoding('mail sent')
+         console.log(info.messageId)
+         res.send('mail sent')
 })
 
 router.post('/', async (req, res) => {

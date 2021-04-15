@@ -14,7 +14,7 @@ router.post('/mail', async (res,req)=>{
     const transporter = nodemailer.createTransport({
         host: 'smtp.ethereal.email',
         port: 587,
-        secure: false,
+       // secure: false,
         auth: {
             user: 'nicolas.berge@ethereal.email',
             pass: 'smHU47bW6R5JgbdKPN'

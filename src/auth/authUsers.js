@@ -11,7 +11,7 @@ const db = require('../dbs/index');
 
 
 router.get('/mail', async (res,req)=>{
-    /*const transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransport({
         host: 'smtp.ethereal.email',
         port: 587,
        // secure: false,
@@ -25,7 +25,7 @@ router.get('/mail', async (res,req)=>{
 
 
     
-    /*
+    
       // send mail with defined transport object
     const info = await   transporter.sendMail({
         from: '"Ridafy " <nicolas.berge@ethereal.email>', // sender address
@@ -33,8 +33,8 @@ router.get('/mail', async (res,req)=>{
         subject: "Hello ", // Subject line
         text: "Hello world" // plain text body       
          });
-         */
-         res.send('mail sent')
+         
+    return     res.send('mail sent')
 })
 
 router.post('/', async (req, res) => {

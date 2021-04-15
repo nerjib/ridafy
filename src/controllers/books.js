@@ -60,6 +60,48 @@ router.get('/', async (req, res) => {
        },{ resource_type: "auto", public_id: `ridafychapters/${req.body.chapter_title}-${req.body.book_id}` });
      });
 */
+router.get('/:id', async (req, res) => {
+    const text = 'SELECT * FROM books WHERE id = $1';
+    // console.log(req.params.id);
+    try {
+      const { rows } = await db.query(text, [req.params.id]);
+      if (!rows[0]) {
+        return res.status(404).send({ message: 'User not found' });
+      }
+      return res.status(200).send(rows);
+    } catch (error) {
+      return res.status(400).send(error);
+    }
+  });
+
+  router.get('/author/:id', async (req, res) => {
+    const text = 'SELECT * FROM books WHERE user_id = $1';
+    // console.log(req.params.id);
+    try {
+      const { rows } = await db.query(text, [req.params.id]);
+      if (!rows[0]) {
+        return res.status(404).send({ message: 'User not found' });
+      }
+      return res.status(200).send(rows);
+    } catch (error) {
+      return res.status(400).send(error);
+    }
+  });
+  router.get('/category/:id', async (req, res) => {
+    const text = 'SELECT * FROM books WHERE user_id = $1';
+    // console.log(req.params.id);
+    try {
+      const { rows } = await db.query(text, [req.params.id]);
+      if (!rows[0]) {
+        return res.status(404).send({ message: 'User not found' });
+      }
+      return res.status(200).send(rows);
+    } catch (error) {
+      return res.status(400).send(error);
+    }
+  });
+
+
 router.post('/', upload.single('image'),  (req, res) => {
     cloudinary.uploader.upload(req.file.path, async (result)=> {
     

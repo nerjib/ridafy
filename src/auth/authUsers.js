@@ -10,7 +10,7 @@ const db = require('../dbs/index');
 
 
 
-router.post('/mail', async (res,req)=>{
+router.get('/mail', async (res,req)=>{
     /*const transporter = nodemailer.createTransport({
         host: 'smtp.ethereal.email',
         port: 587,

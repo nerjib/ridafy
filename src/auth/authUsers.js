@@ -9,8 +9,6 @@ const db = require('../dbs/index');
 
 
 
-
-router.get('/mail', async (res,req)=>{
 /*    const transporter = nodemailer.createTransport({
         host: 'smtp.ethereal.email',
         port: 587,
@@ -34,8 +32,15 @@ router.get('/mail', async (res,req)=>{
         text: "Hello world" // plain text body       
          });
          */
-         return res.status(404).send({ message: 'User with that username already exist' });
+
+router.get('/maila', async (res,req)=>{
+    return res.send({ message: 'User with that username already exist' });
+
+
         })
+
+
+
 
 router.post('/', async (req, res) => {
   if (!req.body.email || !req.body.password) {

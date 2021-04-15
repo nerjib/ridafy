@@ -7,18 +7,18 @@ const Helper = require('../helpers/helper');
 const router = express.Router();
 const db = require('../dbs/index');
 
-const transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
-    port: 587,
-    auth: {
-        user: 'nicolas.berge@ethereal.email',
-        pass: 'smHU47bW6R5JgbdKPN'
-    }
-});
 
 
-router.get('/mail', function(res,req){
 
+router.post('/mail', function(res,req){
+    const transporter = nodemailer.createTransport({
+        host: 'smtp.ethereal.email',
+        port: 587,
+        auth: {
+            user: 'nicolas.berge@ethereal.email',
+            pass: 'smHU47bW6R5JgbdKPN'
+        }
+    });
 // verify connection configuration
 transporter.verify(function(error, success) {
     if (error) {

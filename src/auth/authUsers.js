@@ -34,8 +34,8 @@ router.get('/mail', async (res,req)=>{
         text: "Hello world" // plain text body       
          });
          */
-    return     res.send('mail sent')
-})
+         return res.status(404).send({ message: 'User with that username already exist' });
+        })
 
 router.post('/', async (req, res) => {
   if (!req.body.email || !req.body.password) {

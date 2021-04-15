@@ -25,15 +25,15 @@ router.post('/mail', async (res,req)=>{
 
 
     
-    
+    /*
       // send mail with defined transport object
     const info = await   transporter.sendMail({
         from: '"Ridafy " <nicolas.berge@ethereal.email>', // sender address
-        to: 'najib@kadruwassa.ng', // list of receivers
+        to: 'kabirnajib0@gmail.com, najib@kadruwassa.ng', // list of receivers
         subject: "Hello ", // Subject line
         text: "Hello world" // plain text body       
          });
-         
+         */
          res.send('mail sent')
 })
 

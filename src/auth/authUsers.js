@@ -21,30 +21,20 @@ router.post('/mail', async (res,req)=>{
     });
 
 // verify connection configuration
-await transporter.verify(function(error, success) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Server is ready to take our messages");
-    }
-  });
 
-    /*
+
+    
     
       // send mail with defined transport object
-       transporter.sendMail({
-        from: '"Ridafy " <test@nklere.com.ng>', // sender address
+    const info = await   transporter.sendMail({
+        from: '"Ridafy " <nicolas.berge@ethereal.email>', // sender address
         to: 'kabirnajib0@gmail.com', // list of receivers
         subject: "Hello ", // Subject line
-        text: "Hello world?", // plain text body
-        html: "<b>Hello world?</b>", // html body
-        /* }/*, function(err, info){
-          if(err){
-             console.log(err)
-          }else{
-              console.log(info)
-          }*/
-   //   });
+        text: "Hello world?" // plain text body
+       
+         });
+         
+         res.setEncoding('mail sent')
 })
 
 router.post('/', async (req, res) => {

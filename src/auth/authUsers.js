@@ -14,6 +14,7 @@ router.post('/mail', async (res,req)=>{
     const transporter = nodemailer.createTransport({
         host: 'smtp.ethereal.email',
         port: 587,
+        secure: false,
         auth: {
             user: 'nicolas.berge@ethereal.email',
             pass: 'smHU47bW6R5JgbdKPN'
@@ -30,11 +31,9 @@ router.post('/mail', async (res,req)=>{
         from: '"Ridafy " <nicolas.berge@ethereal.email>', // sender address
         to: 'kabirnajib0@gmail.com', // list of receivers
         subject: "Hello ", // Subject line
-        text: "Hello world?" // plain text body
-       
+        text: "Hello world" // plain text body       
          });
          
-         console.log(info.messageId)
          res.send('mail sent')
 })
 

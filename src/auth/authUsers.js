@@ -11,7 +11,7 @@ const db = require('../dbs/index');
 
 
 router.post('/mail', async (res,req)=>{
-    const transporter = nodemailer.createTransport({
+    /*const transporter = nodemailer.createTransport({
         host: 'smtp.ethereal.email',
         port: 587,
        // secure: false,

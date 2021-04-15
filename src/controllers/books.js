@@ -75,7 +75,7 @@ router.get('/:id', async (req, res) => {
   });
 
   router.get('/author/:id', async (req, res) => {
-    const text = 'SELECT * FROM books WHERE user_id = $1';
+    const text = 'SELECT * FROM books WHERE author_id = $1';
     // console.log(req.params.id);
     try {
       const { rows } = await db.query(text, [req.params.id]);
@@ -88,7 +88,7 @@ router.get('/:id', async (req, res) => {
     }
   });
   router.get('/category/:id', async (req, res) => {
-    const text = 'SELECT * FROM books WHERE user_id = $1';
+    const text = 'SELECT * FROM books WHERE category_id = $1';
     // console.log(req.params.id);
     try {
       const { rows } = await db.query(text, [req.params.id]);

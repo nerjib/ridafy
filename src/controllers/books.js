@@ -136,7 +136,7 @@ router.get('/:id', async (req, res) => {
       productImages: urls.map( url => url.res ),
     });
 */
-return res.send({img:urls.map( url => url.res ) })
+return res.send({img:urls[0] })
 /*
     cloudinary.uploader.upload(req.file.path, async (result)=> {
     

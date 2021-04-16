@@ -122,7 +122,7 @@ router.get('/:id', async (req, res) => {
 
 
     const urls = [];
-    const files = req.files;
+    const files = req.file;
     for (const file of files) {
       const { path } = file;
       const newPath = await cloudinaryImageUploadMethod(path)

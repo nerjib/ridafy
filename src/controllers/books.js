@@ -116,7 +116,8 @@ router.get('/:id', async (req, res) => {
         ) 
     })
   }
-  router.post('/a', upload.array("image", 2 ),  (req, res) => {
+
+  router.post('/a', upload.array("image", 2 ),  async(req, res) => {
 
 
 

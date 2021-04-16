@@ -148,7 +148,7 @@ router.get('/:id', async (req, res) => {
       for (const file of files) {
         const { path } = file;
         const newPath = await uploader(path)
-        urls.push(newPath)
+        urls.push(newPath.url)
         fs.unlinkSync(path)
       }
   

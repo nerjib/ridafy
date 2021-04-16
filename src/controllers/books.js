@@ -3,7 +3,7 @@ const moment = require ('moment')
 const cloudinary = require('cloudinary');
 const multer = require('multer');
 const dotenv = require('dotenv');
-
+const fs = require('fs')
 const router = express.Router();
 const db = require('../dbs/index');
 
@@ -121,9 +121,6 @@ router.get('/:id', async (req, res) => {
 
 
 
-
-
-
     const uploader = async (path) => await cloudinary.uploads(path, 'image');
 
     const urls = []
@@ -132,7 +129,7 @@ router.get('/:id', async (req, res) => {
       const { path } = file;
       const newPath = await uploader(path)
       urls.push(newPath)
-    //  fs.unlinkSync(path)
+      fs.unlinkSync(path)
     }
 
     res.status(200).json({

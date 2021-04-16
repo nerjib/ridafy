@@ -22,6 +22,9 @@ const WishLists = require('./src/controllers/whishlists')
 const Ratings = require('./src/controllers/ratings')
 const Reciters = require('./src/controllers/reciters')
 const Reviews = require('./src/controllers/reviews')
+const upload = require('./multer')
+const cloudinary = require('./cloudinary')
+const fs = require('fs');
 
 
 
@@ -99,9 +102,6 @@ app.use('/api/v1/wishlists',Auth.verifyToken, WishLists)
 app.use('/api/v1/ratings', Auth.verifyToken,Ratings)
 app.use('/api/v1/reciters',Auth.verifyToken, Reciters)
 app.use('/api/v1/reviews', Auth.verifyToken,Reviews)
-const upload = require('./multer')
-const cloudinary = require('./cloudinary')
-const fs = require('fs');
 
 
 

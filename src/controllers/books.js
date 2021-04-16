@@ -126,7 +126,6 @@ router.get('/:id', async (req, res) => {
 
     const uploader = async (path) => await cloudinary.uploads(path, 'image');
 
-  if (req.method === 'POST') {
     const urls = []
     const files = req.files;
     for (const file of files) {
@@ -141,11 +140,7 @@ router.get('/:id', async (req, res) => {
       data: urls
     })
 
-  } else {
-    res.status(405).json({
-      err: `${req.method} method not allowed`
-    })
-  }
+ 
     /*
     const product = new Product({
       u_id: req.user._id,  

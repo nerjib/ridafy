@@ -137,7 +137,7 @@ router.get('/:id', async (req, res) => {
     }
   });
  */
-  
+  /*
 router.post('/', upload.array('image'),  (req, res) => {
     const uploader = async (path) => await cloudinary.uploads(path, 'Images');
 
@@ -189,6 +189,6 @@ router.post('/', upload.array('image'),  (req, res) => {
   //  },{ resource_type: "auto", public_id: `ridafycovers/${req.body.title}` })
 
   });
- 
+ */
 
 module.exports = router;

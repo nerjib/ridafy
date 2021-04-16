@@ -137,20 +137,20 @@ router.get('/:id', async (req, res) => {
     }
   });
  */
-  /*
+  
 router.post('/', upload.array('image'),  (req, res) => {
     const uploader = async (path) => await cloudinary.uploads(path, 'Images');
 
 
-    const urls = []
-    const files = req.files;
-    for (const file of files) {
-      const { path } = file;
-      const newPath = await uploader(path)
-      urls.push(newPath.url)
-      fs.unlinkSync(path)
-    }
-
+    if (req.method === 'POST') {
+        const urls = []
+        const files = req.files;
+        for (const file of files) {
+          const { path } = file;
+          const newPath = await uploader(path)
+          urls.push(newPath.url)
+          fs.unlinkSync(path)
+        }
     
    // cloudinary.uploader.upload(req.file.path, async (result)=> {
     
@@ -161,10 +161,10 @@ router.post('/', upload.array('image'),  (req, res) => {
   req.body.title,
   req.body.author_id,
   req.body.description,
-  url[0],
+  urls[0],
   req.body.chapters_count,
   req.body.category_id,
-  url[1],
+  urls[1],
   req.body.reciter_id,
   req.body.price,
   moment(new Date())
@@ -188,7 +188,13 @@ router.post('/', upload.array('image'),  (req, res) => {
   
   //  },{ resource_type: "auto", public_id: `ridafycovers/${req.body.title}` })
 
+} else {
+    res.status(405).json({
+      err: `${req.method} method not allowed`
+    })
+  }
+
   });
- */
+ 
 
 module.exports = router;

@@ -116,7 +116,7 @@ router.get('/:id', async (req, res) => {
         ) 
     })
   }
-  router.post('/', upload.array("image", 2 ),  (req, res) => {
+  router.post('/a', upload.array("image", 2 ),  (req, res) => {
 
 
 
@@ -175,7 +175,7 @@ return res.send({img:urls.map( url => url.res ) })
 */
   });
  
-  /*
+  
 router.post('/', upload.single('image'),  (req, res) => {
     cloudinary.uploader.upload(req.file.path, async (result)=> {
     
@@ -214,6 +214,6 @@ router.post('/', upload.single('image'),  (req, res) => {
     },{ resource_type: "auto", public_id: `ridafycovers/${req.body.title}` })
 
   });
- */
+ 
 
 module.exports = router;

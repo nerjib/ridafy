@@ -4,7 +4,7 @@ const http = require('http')
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const path = require('path');
-//const cloudinary = require('cloudinary');
+const cloudinary = require('cloudinary');
 const multer = require('multer');
 const dotenv = require('dotenv');
 const Users = require('./src/controllers/users')
@@ -22,9 +22,9 @@ const WishLists = require('./src/controllers/whishlists')
 const Ratings = require('./src/controllers/ratings')
 const Reciters = require('./src/controllers/reciters')
 const Reviews = require('./src/controllers/reviews')
-const upload = require('./src/controllers/multer')
-const cloudinary = require('./src/controllers/cloudinary')
-const fs = require('fs');
+//const upload = require('./src/controllers/multer')
+//const cloudinary = require('./src/controllers/cloudinary')
+//const fs = require('fs');
 
 
 
@@ -62,7 +62,7 @@ app.use((req, res, next) => {
 
 
 app.use(cookieParser());
-/*
+
 const storage = multer.diskStorage({
     distination: function (req, file, cb) {
       cb(null, './src');
@@ -84,11 +84,11 @@ const storage = multer.diskStorage({
     }
   };
   
-  const upload1 = multer({
+  const upload = multer({
     storage,
     fileFilter,
   });
-*/
+
 app.use('/api/v1/users',Auth.verifyToken, Users)
 app.use('/api/v1/auth/signin', AuthSignIn)
 app.use('/api/v1/auth/signup', AuthUsers)
@@ -130,7 +130,7 @@ app.get('/',(req,res)=>{
 
 
 
-
+/*
 
 app.use('/upload-images', upload.array('image'), async (req, res) => {
 
@@ -148,7 +148,7 @@ app.use('/upload-images', upload.array('image'), async (req, res) => {
   
       res.status(200).json({
         message: 'images uploaded successfully',
-        data: urls
+        data: urls[0]
       })
   
     } else {
@@ -158,6 +158,6 @@ app.use('/upload-images', upload.array('image'), async (req, res) => {
     }
   })
 
-
+*/
 
 module.exports = app;

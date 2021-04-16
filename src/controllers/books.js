@@ -1,14 +1,19 @@
 const express = require('express');
 const moment = require ('moment')
-const cloudinary = require('cloudinary');
-const multer = require('multer');
+//const cloudinary = require('cloudinary');
+//const multer = require('multer');
 const dotenv = require('dotenv');
+const upload = require('./multer')
+const cloudinary = require('./cloudinary')
+//const fs = require('fs');
+
 const fs = require('fs')
 const router = express.Router();
 const db = require('../dbs/index');
 
 dotenv.config();
 
+/*
 const storage = multer.diskStorage({
     distination: function (req, file, cb) {
       cb(null, './src');
@@ -34,7 +39,7 @@ const storage = multer.diskStorage({
     storage,
     fileFilter,
   });
-
+*/
 
 router.get('/', async (req, res) => {
     const getAllQ = 'SELECT * FROM books';
@@ -103,90 +108,63 @@ router.get('/:id', async (req, res) => {
 
 
 
+ /* app.use('/upload-images', upload.array('image'), async (req, res) => {
 
-  const cloudinaryImageUploadMethod = async file => {
-    return new Promise(resolve => {
-        cloudinary.uploader.upload( file , (err, res) => {
-          if (err) return res.status(500).send("upload image error")
-            console.log( res.secure_url )
-            resolve({
-              res: res.secure_url
-            }) 
-          }
-        ) 
-    })
-  }
+    const uploader = async (path) => await cloudinary.uploads(path, 'Images');
+  
+    if (req.method === 'POST') {
+      const urls = []
+      const files = req.files;
+      for (const file of files) {
+        const { path } = file;
+        const newPath = await uploader(path)
+        urls.push(newPath)
+        fs.unlinkSync(path)
+      }
+  
+      res.status(200).json({
+        message: 'images uploaded successfully',
+        data: urls[0]
+      })
+  
+    } else {
+      res.status(405).json({
+        err: `${req.method} method not allowed`
+      })
+    }
+  })
+
+  */
 
   router.post('/a', upload.array("image" ),  async(req, res) => {
 
 
 
-    const uploader = async (path) => await cloudinary.uploads(path, 'image');
-
-    const urls = []
-    const files = req.files;
-    for (const file of files) {
-      const { path } = file;
-      const newPath = await uploader(path)
-      urls.push(newPath)
-      fs.unlinkSync(path)
-    }
-
-    res.status(200).json({
-      message: 'images uploaded successfully',
-      data: urls
-    })
-
- 
-    /*
-    const product = new Product({
-      u_id: req.user._id,  
-      name: req.body.name,
-      description: req.body.description,
-      productImages: urls.map( url => url.res ),
-    });
-*/
-//return res.send({img:urls[0] })
-/*
-    cloudinary.uploader.upload(req.file.path, async (result)=> {
-    
-    const createUser = `INSERT INTO
-    books(title,author_id,description,sample_location,chapters_count,category_id,cover_location,reciter_id,price,created_at)
-    VALUES ($1, $2,$3,$4,$5,$6,$7,$8,$9,$10) RETURNING *`;  
-  const values = [
-  req.body.title,
-  req.body.author_id,
-  req.body.description,
-  req.body.sample_location,
-  req.body.chapters_count,
-  req.body.category_id,
-  result.secure_url,
-  req.body.reciter_id,
-  req.body.price,
-  moment(new Date())
-  ];
-  try {
-  const { rows } = await db.query(createUser, values);
-  // console.log(rows);
-  const data = {
-    status: 'success',
-    data: {
-      message: 'book added successfully​',
-      Name: rows[0].name,
-      Email: rows[0].email,
-      phone: rows[0].phone_no,
-    },
-  };
-  return res.status(201).send(data);
-  } catch (error) {
-  return res.status(400).send(error);
-  }
+    const uploader = async (path) => await cloudinary.uploads(path, 'Images');
   
-    },{ resource_type: "auto", public_id: `ridafycovers/${req.body.title}` })
-*/
+    if (req.method === 'POST') {
+      const urls = []
+      const files = req.files;
+      for (const file of files) {
+        const { path } = file;
+        const newPath = await uploader(path)
+        urls.push(newPath)
+        fs.unlinkSync(path)
+      }
+  
+      res.status(200).json({
+        message: 'images uploaded successfully',
+        data: urls
+      })
+  
+    } else {
+      res.status(405).json({
+        err: `${req.method} method not allowed`
+      })
+    }
   });
  
-  
+  /*
 router.post('/', upload.single('image'),  (req, res) => {
     cloudinary.uploader.upload(req.file.path, async (result)=> {
     
@@ -226,5 +204,5 @@ router.post('/', upload.single('image'),  (req, res) => {
 
   });
  
-
+*/
 module.exports = router;

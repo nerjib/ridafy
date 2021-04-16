@@ -102,6 +102,80 @@ router.get('/:id', async (req, res) => {
   });
 
 
+
+
+  const cloudinaryImageUploadMethod = async file => {
+    return new Promise(resolve => {
+        cloudinary.uploader.upload( file , (err, res) => {
+          if (err) return res.status(500).send("upload image error")
+            console.log( res.secure_url )
+            resolve({
+              res: res.secure_url
+            }) 
+          }
+        ) 
+    })
+  }
+  router.post('/', upload.array("image", 2 ),  (req, res) => {
+
+
+
+    const urls = [];
+    const files = req.files;
+    for (const file of files) {
+      const { path } = file;
+      const newPath = await cloudinaryImageUploadMethod(path)
+      urls.push(newPath)
+    }
+    /*
+    const product = new Product({
+      u_id: req.user._id,  
+      name: req.body.name,
+      description: req.body.description,
+      productImages: urls.map( url => url.res ),
+    });
+*/
+return res.send({img:urls.map( url => url.res ) })
+/*
+    cloudinary.uploader.upload(req.file.path, async (result)=> {
+    
+    const createUser = `INSERT INTO
+    books(title,author_id,description,sample_location,chapters_count,category_id,cover_location,reciter_id,price,created_at)
+    VALUES ($1, $2,$3,$4,$5,$6,$7,$8,$9,$10) RETURNING *`;  
+  const values = [
+  req.body.title,
+  req.body.author_id,
+  req.body.description,
+  req.body.sample_location,
+  req.body.chapters_count,
+  req.body.category_id,
+  result.secure_url,
+  req.body.reciter_id,
+  req.body.price,
+  moment(new Date())
+  ];
+  try {
+  const { rows } = await db.query(createUser, values);
+  // console.log(rows);
+  const data = {
+    status: 'success',
+    data: {
+      message: 'book added successfully​',
+      Name: rows[0].name,
+      Email: rows[0].email,
+      phone: rows[0].phone_no,
+    },
+  };
+  return res.status(201).send(data);
+  } catch (error) {
+  return res.status(400).send(error);
+  }
+  
+    },{ resource_type: "auto", public_id: `ridafycovers/${req.body.title}` })
+*/
+  });
+ 
+  /*
 router.post('/', upload.single('image'),  (req, res) => {
     cloudinary.uploader.upload(req.file.path, async (result)=> {
     
@@ -140,6 +214,6 @@ router.post('/', upload.single('image'),  (req, res) => {
     },{ resource_type: "auto", public_id: `ridafycovers/${req.body.title}` })
 
   });
- 
+ */
 
 module.exports = router;

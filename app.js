@@ -22,8 +22,8 @@ const WishLists = require('./src/controllers/whishlists')
 const Ratings = require('./src/controllers/ratings')
 const Reciters = require('./src/controllers/reciters')
 const Reviews = require('./src/controllers/reviews')
-const upload = require('./multer')
-const cloudinary = require('./cloudinary')
+const upload = require('./src/controllers/multer')
+const cloudinary = require('./src/controllers/cloudinary')
 const fs = require('fs');
 
 

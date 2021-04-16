@@ -1,23 +1,24 @@
 const multer = require('multer');
 
+
+
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, './uploads/')
+    distination: function (req, file, cb) {
+      cb(null, './src');
     },
     filename: function (req, file, cb) {
-        cb(null, new Date().toISOString() + '-' + file.originalname)
-    }
-})
+      cb(null, file.originalname);
+    },
+  });
 
-
-const fileFilter = (req, file, cb) => {
-    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
-        cb(null, true)
+  const fileFilter = (req, file, cb) => {
+    if (file.mimetype === 'image/gif'||'image/png') {
+      cb(null, true);
     } else {
-        //reject file
-        cb({message: 'Unsupported file format'}, false)
+      cb(new Error('image is not gif'), false);
     }
-}
+  };
+
 
 const upload = multer({
     storage: storage,

@@ -117,17 +117,35 @@ router.get('/:id', async (req, res) => {
     })
   }
 
-  router.post('/a', upload.array("image", 2 ),  async(req, res) => {
+  router.post('/a', upload.array("image" ),  async(req, res) => {
 
 
 
-    const urls = [];
-    const files = req.file;
+
+
+
+    const uploader = async (path) => await cloudinary.uploads(path, 'image');
+
+  if (req.method === 'POST') {
+    const urls = []
+    const files = req.files;
     for (const file of files) {
       const { path } = file;
-      const newPath = await cloudinaryImageUploadMethod(path)
+      const newPath = await uploader(path)
       urls.push(newPath)
+      fs.unlinkSync(path)
     }
+
+    res.status(200).json({
+      message: 'images uploaded successfully',
+      data: urls
+    })
+
+  } else {
+    res.status(405).json({
+      err: `${req.method} method not allowed`
+    })
+  }
     /*
     const product = new Product({
       u_id: req.user._id,  
@@ -136,7 +154,7 @@ router.get('/:id', async (req, res) => {
       productImages: urls.map( url => url.res ),
     });
 */
-return res.send({img:urls[0] })
+//return res.send({img:urls[0] })
 /*
     cloudinary.uploader.upload(req.file.path, async (result)=> {
     

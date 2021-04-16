@@ -133,7 +133,7 @@ router.get('/:id', async (req, res) => {
       const { path } = file;
       const newPath = await uploader(path)
       urls.push(newPath)
-      fs.unlinkSync(path)
+    //  fs.unlinkSync(path)
     }
 
     res.status(200).json({

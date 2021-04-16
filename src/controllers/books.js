@@ -107,34 +107,7 @@ router.get('/:id', async (req, res) => {
   });
 
 
-
- /* app.use('/upload-images', upload.array('image'), async (req, res) => {
-
-    const uploader = async (path) => await cloudinary.uploads(path, 'Images');
-  
-    if (req.method === 'POST') {
-      const urls = []
-      const files = req.files;
-      for (const file of files) {
-        const { path } = file;
-        const newPath = await uploader(path)
-        urls.push(newPath)
-        fs.unlinkSync(path)
-      }
-  
-      res.status(200).json({
-        message: 'images uploaded successfully',
-        data: urls[0]
-      })
-  
-    } else {
-      res.status(405).json({
-        err: `${req.method} method not allowed`
-      })
-    }
-  })
-
-  */
+/*
 
   router.post('/a', upload.array("image" ),  async(req, res) => {
 
@@ -163,10 +136,23 @@ router.get('/:id', async (req, res) => {
       })
     }
   });
- 
-  /*
-router.post('/', upload.single('image'),  (req, res) => {
-    cloudinary.uploader.upload(req.file.path, async (result)=> {
+ */
+  
+router.post('/', upload.array('file'),  (req, res) => {
+    const uploader = async (path) => await cloudinary.uploads(path, 'Images');
+
+
+    const urls = []
+    const files = req.files;
+    for (const file of files) {
+      const { path } = file;
+      const newPath = await uploader(path)
+      urls.push(newPath.url)
+      fs.unlinkSync(path)
+    }
+
+    
+   // cloudinary.uploader.upload(req.file.path, async (result)=> {
     
     const createUser = `INSERT INTO
     books(title,author_id,description,sample_location,chapters_count,category_id,cover_location,reciter_id,price,created_at)
@@ -175,10 +161,10 @@ router.post('/', upload.single('image'),  (req, res) => {
   req.body.title,
   req.body.author_id,
   req.body.description,
-  req.body.sample_location,
+  url[0],
   req.body.chapters_count,
   req.body.category_id,
-  result.secure_url,
+  url[1],
   req.body.reciter_id,
   req.body.price,
   moment(new Date())
@@ -190,9 +176,9 @@ router.post('/', upload.single('image'),  (req, res) => {
     status: 'success',
     data: {
       message: 'book added successfully​',
-      Name: rows[0].name,
-      Email: rows[0].email,
-      phone: rows[0].phone_no,
+      title: rows[0].title,
+      cover_location: rows[0].cover_location,
+      sample_location: rows[0].sample_location,
     },
   };
   return res.status(201).send(data);
@@ -200,9 +186,9 @@ router.post('/', upload.single('image'),  (req, res) => {
   return res.status(400).send(error);
   }
   
-    },{ resource_type: "auto", public_id: `ridafycovers/${req.body.title}` })
+  //  },{ resource_type: "auto", public_id: `ridafycovers/${req.body.title}` })
 
   });
  
-*/
+
 module.exports = router;

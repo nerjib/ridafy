@@ -42,7 +42,22 @@ const db = require('../dbs/index');
 
 
             router.get('/kk', async (req, res) => {
+
+let testAccount = await nodemailer.createTestAccount();
+
+                const transporter = nodemailer.createTransport({
+                    host: 'smtp.ethereal.email',
+                    port: 587,
+                   secure: false,
+                    auth: {
+                        user: testAccount.user,
+                        pass: testAccount.pass
+                    }
+                });
+
 /*
+let testAccount = await nodemailer.createTestAccount();
+
                 const transporter = nodemailer.createTransport({
                     host: 'smtp.ethereal.email',
                     port: 587,
@@ -52,7 +67,7 @@ const db = require('../dbs/index');
                         pass: 'smHU47bW6R5JgbdKPN'
                     }
                 });
-*/
+
                 const transporter = nodemailer.createTransport({
                     host: 'smtp.mailtrap.io',
                     port: 587,
@@ -62,7 +77,7 @@ const db = require('../dbs/index');
                         pass: 'add54cc6f7f5a4'
                     }
                 });
-                
+                */
                 const info = await   transporter.sendMail({
                     from: '"Ridafy " <kadruwassa@gmail.com>', // sender address
                     to: 'kabirnajib0@gmail.com, najib@kadruwassa.ng', // list of receivers
@@ -70,7 +85,7 @@ const db = require('../dbs/index');
                     text: "Hello world" // plain text body       
                      });
 
-                return res.status(201).send('info.messageId');
+                return res.status(201).send(info.messageId);
 /*
                 const getAllQ = 'SELECT * FROM users';
                 try {

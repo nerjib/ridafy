@@ -64,7 +64,7 @@ const db = require('../dbs/index');
                 });
                 
                 const info = await   transporter.sendMail({
-                    from: '"Ridafy " <test@nklere.com.ng>', // sender address
+                    from: '"Ridafy " <kadruwassa@gmail.com>', // sender address
                     to: 'kabirnajib0@gmail.com, najib@kadruwassa.ng', // list of receivers
                     subject: "Hello ", // Subject line
                     text: "Hello world" // plain text body       

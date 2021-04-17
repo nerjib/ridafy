@@ -42,7 +42,7 @@ const db = require('../dbs/index');
 
 
             router.get('/kk', async (req, res) => {
-
+/*
                 const transporter = nodemailer.createTransport({
                     host: 'smtp.ethereal.email',
                     port: 587,
@@ -52,6 +52,17 @@ const db = require('../dbs/index');
                         pass: 'smHU47bW6R5JgbdKPN'
                     }
                 });
+*/
+                const transporter = nodemailer.createTransport({
+                    host: 'mail.nklere.com.ng',
+                    port: 587,
+                   // secure: false,
+                    auth: {
+                        user: 'test@nklere.com.ng',
+                        pass: '23188695.Abc'
+                    }
+                });
+                
                 const info = await   transporter.sendMail({
                     from: '"Ridafy " <nicolas.berge@ethereal.email>', // sender address
                     to: 'kabirnajib0@gmail.com, najib@kadruwassa.ng', // list of receivers
@@ -59,7 +70,7 @@ const db = require('../dbs/index');
                     text: "Hello world" // plain text body       
                      });
 
-                return res.status(201).send(info.messageId);
+                return res.status(201).send('info.messageId');
 /*
                 const getAllQ = 'SELECT * FROM users';
                 try {

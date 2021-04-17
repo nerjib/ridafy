@@ -54,12 +54,12 @@ const db = require('../dbs/index');
                 });
 */
                 const transporter = nodemailer.createTransport({
-                    host: 'mail.nklere.com.ng',
+                    host: 'smtp.mailtrap.io',
                     port: 587,
                    secure: false,
                     auth: {
-                        user: 'test@nklere.com.ng',
-                        pass: '23188695.Abc'
+                        user: '0e59b16da3c507',
+                        pass: 'add54cc6f7f5a4'
                     }
                 });
                 

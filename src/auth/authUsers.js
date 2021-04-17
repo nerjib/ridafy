@@ -56,7 +56,7 @@ const db = require('../dbs/index');
                 const transporter = nodemailer.createTransport({
                     host: 'mail.nklere.com.ng',
                     port: 587,
-                   // secure: false,
+                   secure: false,
                     auth: {
                         user: 'test@nklere.com.ng',
                         pass: '23188695.Abc'

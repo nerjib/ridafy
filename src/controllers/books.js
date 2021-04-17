@@ -139,7 +139,7 @@ router.get('/:id', async (req, res) => {
  */
   
 router.post('/', upload.array('file'),  async(req, res) => {
-    const uploader = async (path) => await cloudinary.uploads(path, 'Images');
+    const uploader = async (path) => await cloudinary.uploads(path, req.body.title);
 
 
     if (req.method === 'POST') {

@@ -19,7 +19,6 @@ exports.uploads = (file, folder) => {
             })
         }, {
             resource_type: "auto",
-            folder: folder
-        })
+            public_id: `ridafyfiles/${folder}`        })
     })
 }

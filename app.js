@@ -92,7 +92,7 @@ const storage = multer.diskStorage({
   const token = 'abc12345'
   const bot = new methods('EAAWple2KZBnUBAEtZCedD5FyVgbV9TYZCTC0qWZCbh4Jo9SCDFvOrcWGZCKNN65y12eEXawpdUpG8BsEgwWtft0or1OJdHfmEkaTGhlXzUFffhAXGppBajjCJhTEdkhcyhlrHsAbUVIRbw2L1VCehbzXTzl7QRuvV7WS1WZAaqroFvMHQryFtE')
   app.post('/wit',  (req, res,next) => {
-    let body = req.body;
+   /* let body = req.body;
     if (body.object === 'page') {
 
       // Iterate over each entry - there may be multiple if batched
@@ -112,10 +112,10 @@ const storage = multer.diskStorage({
       // Return a '404 Not Found' if event is not from a page subscription
       res.sendStatus(404);
     }
-
+*/
 
   ///  res.send('{done:}')
-   /* const response = req.body 
+    const response = req.body 
     if(response.object ==="page"){
       const messageObj = bot.getMessageObjects(response)
       bot.sendText(`you said: ${messageObj.message }`,messageObj.id)
@@ -129,7 +129,7 @@ const storage = multer.diskStorage({
     //Recipe.getAll(req, res);
     }else{
       next()
-    }*/
+    }
   }  
   );
   

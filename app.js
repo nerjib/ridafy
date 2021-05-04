@@ -90,8 +90,8 @@ const storage = multer.diskStorage({
   });
 
   const token = 'abc12345'
-  app.post('/wit',  async (req, res,nex) => {
-    res.send({done:'ok'})
+  app.post('/wit',  async (req, res,next) => {
+    res.send('{done:}')
     //Recipe.postRecipe(req, res);
   });
   app.get('/wit', async (req, res, next) => {

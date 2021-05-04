@@ -89,6 +89,16 @@ const storage = multer.diskStorage({
     fileFilter,
   });
 
+  app.post('/wit',  async (req, res) => {
+    res.send(req.body)
+    //Recipe.postRecipe(req, res);
+  });
+  app.get('/wit', Auth.verifyToken, async (req, res) => {
+    res.send(req.body)
+    //Recipe.getAll(req, res);
+  });
+  
+
 app.use('/api/v1/users',Auth.verifyToken, Users)
 app.use('/api/v1/auth/signin', AuthSignIn)
 app.use('/api/v1/auth/signup', AuthUsers)

@@ -21,7 +21,7 @@ const json = {
     }
 
     getMessageObjects(json){
-        console.log(json)
+        console.log(JSON.stringify(json))
         const message = json.entry[0].messaging[0].message.text
         const id = json.entry[0].messaging[0].message.id
 return{ message, id}

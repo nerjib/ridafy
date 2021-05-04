@@ -94,7 +94,7 @@ const storage = multer.diskStorage({
     res.send(req.body)
     //Recipe.postRecipe(req, res);
   });
-  app.get('/wit', Auth.verifyToken, async (req, res) => {
+  app.get('/wit', async (req, res, next) => {
     if(req.query['hub.mode']== 'subscribe' && req.query['hub.verify_token']==token){
     res.end(req.query['hub.challenge'])
     //Recipe.getAll(req, res);

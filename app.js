@@ -89,14 +89,20 @@ const storage = multer.diskStorage({
     fileFilter,
   });
 
-  app.post('/wit',  async (req, res) => {
+  const token = 'abc12345'
+  app.post('/wit',  async (req, res,nex) => {
     res.send(req.body)
     //Recipe.postRecipe(req, res);
   });
   app.get('/wit', Auth.verifyToken, async (req, res) => {
-    res.send(req.body)
+    if(req.query['hub.mode']== 'subscribe' && req.query['hub.verify_token']==token){
+    res.end(req.query['hub.challenge'])
     //Recipe.getAll(req, res);
-  });
+    }else{
+      next()
+    }
+  }  
+  );
   
 
 app.use('/api/v1/users',Auth.verifyToken, Users)

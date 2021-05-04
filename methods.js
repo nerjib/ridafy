@@ -24,7 +24,7 @@ const json = {
       //  console.log(JSON.stringify(json))
       //  console.log('kkkkk '+json.entry[0].messaging[0].message['text'])
         const message = 'json.entry[0].messaging[0].message.text'
-        const id = json.entry[0].messaging[0].message.id
+        const id = 407860476736240
 return{ message, id}
     }
 }

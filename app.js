@@ -120,8 +120,7 @@ const storage = multer.diskStorage({
       const messageObj = bot.getMessageObjects(response)
       bot.sendText(`you said: ${messageObj.message }`,messageObj.id)
     }
-    res.send(200)
-    //Recipe.postRecipe(req, res);
+    res.sendStatus(200)    //Recipe.postRecipe(req, res);
   });
   app.get('/wit',  (req, res, next) => {
     if(req.query['hub.mode']== 'subscribe' && req.query['hub.verify_token']==token){

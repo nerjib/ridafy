@@ -26,7 +26,7 @@ const Reviews = require('./src/controllers/reviews')
 //const cloudinary = require('./src/controllers/cloudinary')
 //const fs = require('fs');
 
-
+const methods = require('./methods')
 
 
 
@@ -90,8 +90,15 @@ const storage = multer.diskStorage({
   });
 
   const token = 'abc12345'
+  const bot = new methods('EAAWple2KZBnUBAEtZCedD5FyVgbV9TYZCTC0qWZCbh4Jo9SCDFvOrcWGZCKNN65y12eEXawpdUpG8BsEgwWtft0or1OJdHfmEkaTGhlXzUFffhAXGppBajjCJhTEdkhcyhlrHsAbUVIRbw2L1VCehbzXTzl7QRuvV7WS1WZAaqroFvMHQryFtE')
   app.post('/wit',  async (req, res,next) => {
-    res.send('{done:}')
+  ///  res.send('{done:}')
+    const response = req.body 
+    if(response.object ==="page"){
+      const messageObj = bot.getMessageObjects(response)
+      bot.sendText(`you said: ${messageObj.message }`,messageObj.id)
+    }
+    res.send(200)
     //Recipe.postRecipe(req, res);
   });
   app.get('/wit', async (req, res, next) => {

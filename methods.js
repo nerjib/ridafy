@@ -15,7 +15,8 @@ const json = {
         qs:{
             access_token: this.ACCESS_TOKEN
         },
-        json, method: 'POST'
+        json,
+         method: 'POST'
     })
         console.log('facebook says: ', res)
     }
@@ -25,8 +26,9 @@ const json = {
       //  console.log('kkkkk '+json.entry[0].messaging[0].message['text'])
         const id = json.entry[0].messaging[0].sender.id
         const message = json.entry[0].messaging[0].message.text
+        const intent = json.entry[0].messaging[0].nlp.intent[0].value
 
-return{ message, id}
+return{ message, id, intent}
     }
 }
 

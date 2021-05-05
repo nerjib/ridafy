@@ -23,12 +23,12 @@ const json = {
 
     getMessageObjects(json){
        console.log(JSON.stringify(json))
-      //  console.log('kkkkk '+json.entry[0].messaging[0].message['text'])
+        console.log('kkkkk '+json.entry[0].messaging[0].nlp.entities.intent[0].value)
         const id = json.entry[0].messaging[0].sender.id
         const message = json.entry[0].messaging[0].message.text
-     //   const intent = json.entry[0].messaging[0].nlp.entities.intent[0].value
+        const intent = json.entry[0].messaging[0].nlp.entities.intent[0].value
 
-return{ message, id}
+return{ message, id, intent}
     }
 }
 

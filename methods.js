@@ -27,14 +27,16 @@ const json = {
         const id = json.entry[0].messaging[0].sender.id
         let message = json.entry[0].messaging[0].message.text
         const intent = json.entry[0].messaging[0].message.nlp.entities.intent[0].value
-        if(!intent){
-            message = message
+        if(intent){
+           
 
-        }else if(intent==='temp_get'){
+      if(intent==='temp_get'){
             message = 'You want temp'
 
+        }else{
+            message = 'i dont know your intents'
         }
-
+    }
 return{ message, id, intent}
     }
 }

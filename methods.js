@@ -29,9 +29,7 @@ const json = {
         const intent = json.entry[0].messaging[0].message.nlp.entities.intent[0].value
            
 
-      if(intent==='temp_get'){
-            message = 'You want temp'
-        }
+     
     
 return{ message, id, intent}
     }

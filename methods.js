@@ -26,11 +26,11 @@ const json = {
         console.log('kkkkk '+JSON.stringify(json.entry[0].messaging[0].message.nlp))
         const id = json.entry[0].messaging[0].sender.id
         let message = json.entry[0].messaging[0].message.text
-        const intent = json.entry[0].messaging[0].message.nlp.entities.intent[0].value     
+      //  const intent = json.entry[0].messaging[0].message.nlp.entities.intent[0].value     
 
      
     
-return{ message, id, intent}
+return{ message, id}
     }
 }
 

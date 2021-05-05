@@ -25,8 +25,13 @@ const json = {
        console.log(JSON.stringify(json))
         console.log('kkkkk '+JSON.stringify(json.entry[0].messaging[0].message.nlp))
         const id = json.entry[0].messaging[0].sender.id
-        const message = json.entry[0].messaging[0].message.text
+        let message = json.entry[0].messaging[0].message.text
         const intent = json.entry[0].messaging[0].message.nlp.entities.intent[0].value
+        if(intent==='temp_get'){
+            message = 'You want temp'
+        }else{
+            message = message
+        }
 
 return{ message, id, intent}
     }

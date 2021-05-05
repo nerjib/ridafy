@@ -118,7 +118,7 @@ const storage = multer.diskStorage({
     const response = req.body 
     if(response.object ==="page"){
       const messageObj = bot.getMessageObjects(response)
-      bot.sendText(`you said: ${messageObj.message } with intent: ${messageObj.intent} `,messageObj.id)
+      bot.sendText(`you said: ${messageObj.message } with intent: `,messageObj.id)
     }
     res.sendStatus(200)    //Recipe.postRecipe(req, res);
   });

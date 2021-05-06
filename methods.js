@@ -39,7 +39,7 @@ if(json.entry[0].messaging[0].message.nlp.entities.product[0].value){
 
      
     
-return{ message, id, intent: this.intent?this.intent:'', product:'this.product||'}
+return{ message, id, intent: 'this.intent?this.intent', product:'this.product||'}
     }
 }
 

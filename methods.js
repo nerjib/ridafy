@@ -26,8 +26,8 @@ const json = {
       //  console.log('kkkkk '+JSON.stringify(json.entry[0].messaging[0].message.nlp.entities.intent[0].value))
         const id = json.entry[0].messaging[0].sender.id
         const message = json.entry[0].messaging[0].message.text
-       let intent      
-       let product 
+       let intent  =''    
+       let product = ''
 
 if (json.entry[0].messaging[0].message.nlp.entities.intent[0].value){
     intent = json.entry[0].messaging[0].message.nlp.entities.intent[0].value

@@ -28,7 +28,7 @@ const json = {
         const id = json.entry[0].messaging[0].sender.id
         const message = json.entry[0].messaging[0].message.text
      // this.intent='tt'
-/*
+
 if (json.entry[0].messaging[0].message.nlp.entities.intent[0].value){
     this.intent = json.entry[0].messaging[0].message.nlp.entities.intent[0].value
 }
@@ -37,7 +37,7 @@ if(json.entry[0].messaging[0].message.nlp.entities.product[0].value){
     this.product = json.entry[0].messaging[0].message.nlp.entities.product[0].value
 }
 
-     */
+     
     
 return{ message, id, intent: this.intent?this.intent:'', product:'this.product||'}
     }

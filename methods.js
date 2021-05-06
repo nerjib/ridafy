@@ -3,7 +3,6 @@ const request = require('./requestPromise')
 module.exports = class methods {
     constructor(access_token) {
         this.ACCESS_TOKEN= access_token
-        this.intent  =''    
         this.product = ''
     }
 
@@ -30,7 +29,7 @@ const json = {
         const id = json.entry[0].messaging[0].sender.id
         const message = json.entry[0].messaging[0].message.text
      // this.intent='tt'
-/*
+
 if (json.entry[0].messaging[0].message.nlp.entities.intent[0].value){
     this.intent = json.entry[0].messaging[0].message.nlp.entities.intent[0].value
 }

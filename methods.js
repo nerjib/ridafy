@@ -3,8 +3,8 @@ const request = require('./requestPromise')
 module.exports = class methods {
     constructor(access_token) {
         this.ACCESS_TOKEN= access_token
-        intent  =''    
-        product = ''
+        this.intent  =''    
+        this.product = ''
     }
 
    async  sendText(text, id) {
@@ -40,7 +40,7 @@ if(json.entry[0].messaging[0].message.nlp.entities.product[0].value){
 
      
     
-return{ message, id, intent,product}
+return{ message, id, intent: this.intent,product:this.product}
     }
 }
 

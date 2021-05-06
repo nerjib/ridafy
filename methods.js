@@ -3,6 +3,8 @@ const request = require('./requestPromise')
 module.exports = class methods {
     constructor(access_token) {
         this.ACCESS_TOKEN= access_token
+        intent  =''    
+        product = ''
     }
 
    async  sendText(text, id) {
@@ -21,19 +23,19 @@ const json = {
         console.log('facebook says: ', 'res + haha madrid')
     }
 
+
     getMessageObjects(json){
        console.log(JSON.stringify(json))
       //  console.log('kkkkk '+JSON.stringify(json.entry[0].messaging[0].message.nlp.entities.intent[0].value))
         const id = json.entry[0].messaging[0].sender.id
         const message = json.entry[0].messaging[0].message.text
-       const intent  =''    
-       const product = ''
+      
 
 if (json.entry[0].messaging[0].message.nlp.entities.intent[0].value){
-    intent = json.entry[0].messaging[0].message.nlp.entities.intent[0].value
+    this.intent = json.entry[0].messaging[0].message.nlp.entities.intent[0].value
 }
 if(json.entry[0].messaging[0].message.nlp.entities.product[0].value){
-    product = json.entry[0].messaging[0].message.nlp.entities.product[0].value
+    this.product = json.entry[0].messaging[0].message.nlp.entities.product[0].value
 }
 
      

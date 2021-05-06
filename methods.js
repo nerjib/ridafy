@@ -26,12 +26,16 @@ const json = {
       //  console.log('kkkkk '+JSON.stringify(json.entry[0].messaging[0].message.nlp.entities.intent[0].value))
         const id = json.entry[0].messaging[0].sender.id
         const message = json.entry[0].messaging[0].message.text
-       const intent = json.entry[0].messaging[0].message.nlp.entities.intent[0].value     
-       const product = json.entry[0].messaging[0].message.nlp.entities.product[0].value     
+       let intent      
+       let product 
 
-/*if (intent == 'temp_get'){
-    message =' the tem is 15 degrees'
-}*/
+if (json.entry[0].messaging[0].message.nlp.entities.intent[0].value){
+    intent = json.entry[0].messaging[0].message.nlp.entities.intent[0].value
+}
+if(json.entry[0].messaging[0].message.nlp.entities.product[0].value){
+    product = json.entry[0].messaging[0].message.nlp.entities.product[0].value
+}
+
      
     
 return{ message, id, intent,product}

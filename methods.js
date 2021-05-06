@@ -28,7 +28,9 @@ const json = {
         const id = json.entry[0].messaging[0].sender.id
         const message = json.entry[0].messaging[0].message.text
      // this.intent='tt'
-const intent =''
+const intent = json.entry[0].messaging[0].message.nlp.entities.intent[0].value
+
+/*
 if (json.entry[0].messaging[0].message.nlp.entities.intent[0].value){
     intent = json.entry[0].messaging[0].message.nlp.entities.intent[0].value
 }

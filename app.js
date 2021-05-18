@@ -137,7 +137,7 @@ const storage = multer.diskStorage({
 app.use('/api/v1/users',Auth.verifyToken, Users)
 app.use('/api/v1/auth/signin', AuthSignIn)
 app.use('/api/v1/auth/signup', AuthUsers)
-app.use('/api/v1/books', Auth.verifyToken,Books)
+app.use('/api/v1/books', Books)
 app.use('/api/v1/authors',Auth.verifyToken, Authors)
 app.use('/api/v1/chapters',Auth.verifyToken, Chapters)
 app.use('/api/v1/payments',Auth.verifyToken, Payments)

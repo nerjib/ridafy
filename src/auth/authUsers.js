@@ -7,7 +7,7 @@ const Helper = require('../helpers/helper');
 const router = express.Router();
 const db = require('../dbs/index');
 
-
+const mailgun = require('mailgun-js')({apiKey: 'fa6e84b7-f495cfc6', domain: 'Ridafy'});
 
 /*    const transporter = nodemailer.createTransport({
         host: 'smtp.ethereal.email',
@@ -34,8 +34,19 @@ const db = require('../dbs/index');
          */
 
     router.get('/maila', async (res,req)=>{
-        return res.send({ message: 'User with that username already exist' });
-
+       // return res.send({ message: 'User with that username already exist' });
+        const data = {
+          from: 'Excited User <me@samples.mailgun.org>',
+          to: 'kabirnajib0@gmail.com, bar@example.com',
+          subject: 'Hello',
+          text: 'Testing some Mailgun awesomeness!'
+        };
+        
+        mailgun.messages().send(data, (error, body) => {
+          console.log(body);
+          return res.send(JSON.stringify(body))
+        });
+        
 
             })
 

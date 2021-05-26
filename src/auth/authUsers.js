@@ -46,6 +46,7 @@ const db = require('../dbs/index');
 let testAccount = await nodemailer.createTestAccount();
 
                 const transporter = nodemailer.createTransport({
+                  name: 'smtp.ethereal.email', // mail.example.com or smtp.mail.com
                     host: 'smtp.ethereal.email',
                     port: 587,
                    secure: false,

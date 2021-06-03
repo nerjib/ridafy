@@ -33,7 +33,7 @@ router.get('/:id', async (req, res) => {
 });
 
 
-    /*
+    
 router.post('/', async (req, res) => {    
     const createUser = `INSERT INTO
     payments (user_id,book_id,amount,created_at)
@@ -61,6 +61,6 @@ router.post('/', async (req, res) => {
   }
   
   });
- */
+ 
 
 module.exports = router;

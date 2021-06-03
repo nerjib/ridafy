@@ -65,7 +65,7 @@ router.post('/', async (req, res) => {
 
   router.delete('/remove/:bookid/:userid', async (req, res) => {
     
-    const createUser = `DELETE * FROM
+    const createUser = `DELETE  FROM
     carts where userid = $1 and bookid = $2`;  
   const values = [
   req.params.userid,

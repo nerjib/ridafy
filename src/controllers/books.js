@@ -79,6 +79,20 @@ router.get('/:id', async (req, res) => {
     }
   });
 
+  router.get('/access/:bookid/:userid', async (req, res) => {
+    const text = 'SELECT * FROM payments WHERE book_id = $1 and user_id = $2';
+    // console.log(req.params.id);
+    try {
+      const { rows } = await db.query(text, [req.params.bookid, req.params.userid]);
+      if (!rows[0]) {
+        return res.status(404).send({ message: 'book not paid' });
+      }
+      return res.status(200).send({message: 'paid',rows});
+    } catch (error) {
+      return res.status(400).send(error);
+    }
+  });
+
   router.get('/author/:id', async (req, res) => {
     const text = 'SELECT * FROM books WHERE author_id = $1';
     // console.log(req.params.id);

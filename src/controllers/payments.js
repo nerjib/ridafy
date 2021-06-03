@@ -42,6 +42,7 @@ router.post('/', async (req, res) => {
   const values = [
   req.body.user_id,
   req.body.book_id,
+  req.body.amount,
   moment(new Date())
   ];
   try {

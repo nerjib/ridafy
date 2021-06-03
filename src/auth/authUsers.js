@@ -7,7 +7,7 @@ const Helper = require('../helpers/helper');
 const router = express.Router();
 const db = require('../dbs/index');
 
-const mailgun = require('mailgun-js')({apiKey: 'fa6e84b7-f495cfc6', domain: 'Ridafy'});
+const mailgun = require('mailgun-js')({apiKey: 'fa6e84b7-f495cfc6', domain: 'smtp.mailgun.org'});
 
 /*    const transporter = nodemailer.createTransport({
         host: 'smtp.ethereal.email',

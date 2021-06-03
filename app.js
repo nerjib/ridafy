@@ -153,7 +153,7 @@ app.use('/api/v1/reviews', Auth.verifyToken,Reviews)
 
 
 
-app.post('/api/v1/addchapter', upload.single('image'), (req, res) => {
+app.post('/api/v1/addchapter', upload.single('file'), (req, res) => {
     // console.log(req.body)
       cloudinary.uploader.upload(req.file.path, function (result) {
          console.log(result.secure_url)

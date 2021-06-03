@@ -62,6 +62,31 @@ router.post('/', async (req, res) => {
   }
   
   });
+
+  router.delete('/remove/:bookid/:userid', async (req, res) => {
+    
+    const createUser = `DELETE * FROM
+    carts where userid = $1 and bookid = $2`;  
+  const values = [
+  req.params.userid,
+  req.params.bookid,
+  ];
+  try {
+  const { rows } = await db.query(createUser, values);
+  // console.log(rows);
+  const data = {
+    status: 'success',
+    data: {
+      message: 'Cart deleted successfully​',
+      
+    },
+  };
+  return res.status(201).send(data);
+  } catch (error) {
+  return res.status(400).send(error);
+  }
+  
+  });
  
 
 module.exports = router;

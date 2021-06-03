@@ -20,7 +20,7 @@ const generateToken = (id, role) => {
     userId: id,
     role,
   },
-  'secret', { expiresIn: '7d' });
+  'secret', { expiresIn: '180d' });
   return token;
 };
 

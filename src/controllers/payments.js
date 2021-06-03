@@ -37,8 +37,8 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     
     const createUser = `INSERT INTO
-    payments (user_id,book_id,created_at)
-    VALUES ($1,$2,$3) RETURNING *`;  
+    payments (user_id,book_id,amount,created_at)
+    VALUES ($1,$2,$3,$4) RETURNING *`;  
   const values = [
   req.body.user_id,
   req.body.book_id,

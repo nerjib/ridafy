@@ -12,7 +12,7 @@ const mailgun = require("mailgun-js");
   const DOMAIN = 'YOUR_DOMAIN_NAME';
   const mg = mailgun({apiKey: 'c61d9a936ea916295abdfa6d126e7d60-1d8af1f4-2691f78c', domain: 'sandbox00493eebad864db4a7f50119f990bab9.mailgun.org'});
   const data = {
-    from: 'Excited User <me@samples.mailgun.org>',
+    from: 'Excited User <verify@ridafy.com>',
     to: 'kabirnajib0@gmail.com, najib@kadruwassa.ng',
     subject: 'Hello',
     text: 'Testing some Mailgun awesomness!'

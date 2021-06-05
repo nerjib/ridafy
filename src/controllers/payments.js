@@ -29,15 +29,13 @@ router.get('/:id', async (req, res) => {
     return res.status(200).send(rows);
   } catch (error) {
     return res.status(400).send(error);
-  }
+  }  
 });
 
-
-    
 router.post('/', async (req, res) => {    
-    const createUser = `INSERT INTO
+  const createUser = `INSERT INTO
     payments (user_id,book_id,amount,created_at)
-    VALUES ($1,$2,$3,$4) RETURNING *`;  
+      VALUES ($1,$2,$3,$4) RETURNING *`;  
   const values = [
   req.body.user_id,
   req.body.book_id,
@@ -59,8 +57,6 @@ router.post('/', async (req, res) => {
   } catch (error) {
   return res.status(400).send(error);
   }
-  
-  });
- 
+});
 
 module.exports = router;

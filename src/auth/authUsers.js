@@ -10,7 +10,7 @@ const db = require('../dbs/index');
 //const mailgun = require('mailgun-js')({apiKey: 'fa6e84b7-f495cfc6', domain: 'smtp.mailgun.org'});
 const mailgun = require("mailgun-js");
   const DOMAIN = 'YOUR_DOMAIN_NAME';
-  const mg = mailgun({apiKey: '90eb3eb3a5a9d3d84029b3c539bfc8c3-fa6e84b7-f495cfc6', domain: 'sandbox23c106de52344f79b7a7ec67703be65e.mailgun.org'});
+  const mg = mailgun({apiKey: 'c61d9a936ea916295abdfa6d126e7d60-1d8af1f4-2691f78c', domain: 'sandbox00493eebad864db4a7f50119f990bab9.mailgun.org'});
   const data = {
     from: 'Excited User <me@samples.mailgun.org>',
     to: 'kabirnajib0@gmail.com, najib@kadruwassa.ng',

@@ -12,10 +12,12 @@ const mailgun = require("mailgun-js");
   const DOMAIN = 'YOUR_DOMAIN_NAME';
   const mg = mailgun({apiKey: 'c61d9a936ea916295abdfa6d126e7d60-1d8af1f4-2691f78c', domain: 'sandbox00493eebad864db4a7f50119f990bab9.mailgun.org'});
   const data = {
-    from: 'Excited User <verify@ridafy.com>',
+    from: 'Ridafy App <verify@ridafy.com>',
     to: 'kabirnajib0@gmail.com, najib@kadruwassa.ng',
     subject: 'Hello',
-    text: 'Testing some Mailgun awesomness!'
+    text: `Testing some Mailgun awesomness!`,
+    html: `<b>Hello world? <a href='m.me'> click here</a></b>`
+
   };
 /*    const transporter = nodemailer.createTransport({
         host: 'smtp.ethereal.email',
@@ -44,10 +46,11 @@ const mailgun = require("mailgun-js");
     router.get('/maila', async (res,req)=>{
        // return res.send({ message: 'User with that username already exist' });
         const data = {
-          from: 'Excited User <me@samples.mailgun.org>',
+          from: 'Ridafy App <me@samples.mailgun.org>',
           to: 'kabirnajib0@gmail.com, bar@example.com',
           subject: 'Hello',
-          text: 'Testing some Mailgun awesomeness!'
+          text: 'Testing some Mailgun awesomeness!',
+          html: `<b>Hello world? <a href='m.me'> click here</a></b>`
         };
         
         mailgun.messages().send(data, (error, body) => {

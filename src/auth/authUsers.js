@@ -67,7 +67,7 @@ const mailgun = require("mailgun-js");
 
 let testAccount = await nodemailer.createTestAccount();
 
-                const transporter = nodemailer.createTransport({
+      /*          const transporter = nodemailer.createTransport({
                   name: 'smtp.ethereal.email', // mail.example.com or smtp.mail.com
                     host: 'smtp.ethereal.email',
                     port: 587,
@@ -77,7 +77,7 @@ let testAccount = await nodemailer.createTestAccount();
                         pass: testAccount.pass
                     }
                 });
-
+*/
 
 let testAccount = await nodemailer.createTestAccount();
 

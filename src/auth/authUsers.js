@@ -63,7 +63,7 @@ const mailgun = require("mailgun-js");
 
 
 
-      /*      router.get('/kk', async (req, res) => {
+           router.get('/kk', async (req, res) => {
 
 let testAccount = await nodemailer.createTestAccount();
 
@@ -78,7 +78,7 @@ let testAccount = await nodemailer.createTestAccount();
                     }
                 });
 
-/*
+
 let testAccount = await nodemailer.createTestAccount();
 
                 const transporter = nodemailer.createTransport({
@@ -90,7 +90,7 @@ let testAccount = await nodemailer.createTestAccount();
                         pass: 'smHU47bW6R5JgbdKPN'
                     }
                 });
-
+/*
                 const transporter = nodemailer.createTransport({
                     host: 'smtp.mailtrap.io',
                     port: 587,
@@ -101,16 +101,21 @@ let testAccount = await nodemailer.createTestAccount();
                     }
                 });
                 */
-      /*          const info = await   transporter.sendMail({
+              const info = await   transporter.sendMail({
                     from: '"Ridafy " <kadruwassa@gmail.com>', // sender address
                     to: 'kabirnajib0@gmail.com, najib@kadruwassa.ng', // list of receivers
                     subject: "Hello ", // Subject line
                     text: "Hello world" // plain text body       
-                     });
+                     },(error, info) => {
+                      if (error) {
+                        return console.log(error);
+                      }
+                      console.log('Email sent: ' + info.response);
+                    });
 
-                return res.status(201).send(info.messageId);
-/*
-                const getAllQ = 'SELECT * FROM users';
+                return res.status(201).send(info.response);
+
+           /*     const getAllQ = 'SELECT * FROM users';
                 try {
                 // const { rows } = qr.query(getAllQ);
                 const { rows } = await db.query(getAllQ);
@@ -122,7 +127,7 @@ let testAccount = await nodemailer.createTestAccount();
                 return res.status(400).send(`${error} jsh`);
                 }
                 */
-//            });
+            });
 
 async function main() {
   // Generate test SMTP service account from ethereal.email

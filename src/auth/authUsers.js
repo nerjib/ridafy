@@ -65,7 +65,7 @@ const mailgun = require("mailgun-js");
 
            router.get('/kk', async (req, res) => {
 
-let testAccount = await nodemailer.createTestAccount();
+//let testAccount = await nodemailer.createTestAccount();
 
       /*          const transporter = nodemailer.createTransport({
                   name: 'smtp.ethereal.email', // mail.example.com or smtp.mail.com

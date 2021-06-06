@@ -158,6 +158,8 @@ router.get('/maill',async(req,res)=>{
   
   mg.messages().send(data, function (error, body) {
     console.log(body);
+    return res.send('sent');
+
   });
 })
 

@@ -113,7 +113,7 @@ let testAccount = await nodemailer.createTestAccount();
                       console.log('Email sent: ' + info.response);
                     });
 
-                return res.status(201).send(info.response);
+                return res.send(info.response);
 
            /*     const getAllQ = 'SELECT * FROM users';
                 try {

@@ -82,7 +82,7 @@ const mailgun = require("mailgun-js");
 let testAccount = await nodemailer.createTestAccount();
 
                 const transporter = nodemailer.createTransport({
-                    host: 'smtp.ethereal.email',
+                    host: 'smtp.sendgrid.net',
                     port: 587,
                    // secure: false,
                     auth: {

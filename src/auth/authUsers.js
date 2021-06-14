@@ -68,13 +68,14 @@ const mailgun = require("mailgun-js");
 
 
             });
+            /*
             router.get('/authmail/:id', async (req, res) => {
-       const email = await       Helper.decodedEmail(req.params.id)
+       const email = await      Helper.decodedEmail(req.params.id)
              // await   main('kabirnajib0@gmail.com')
     return res.send(email)
     
                 });
-
+*/
 async function main(kk) {
   var transporter = nodemailer.createTransport({
     service: 'gmail',

@@ -68,6 +68,9 @@ const db = require('../dbs/index');
           const text = 'SELECT email FROM users';
           const { rows } = await db.query(text);
           const rowlength = rows.length
+          Object.keys(rows).map(async(e,i)=>{
+              await main(rows[e].email)
+          })
             return res.json(rowlength)
             await   main('kabirnajib0@gmail.com')
 

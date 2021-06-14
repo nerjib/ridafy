@@ -23,10 +23,24 @@ const generateToken = (id, role) => {
   'secret', { expiresIn: '180d' });
   return token;
 };
+const emailToken = (email) => {
+  const token = jwt.sign({
+    email,
+  },
+  'secret', { expiresIn: '1d' });
+  return token;
+};
+
+const decodedEmail = (email) => {
+  const decoded = await jwt.verify(email, 'secret');
+return decoded
+}
 
 module.exports = {
   hashPassword,
   comparePassword,
   isValidEmail,
   generateToken,
+  emailToken, 
+  decodedEmail
 };

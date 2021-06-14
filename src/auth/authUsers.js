@@ -66,33 +66,14 @@ const mailgun = require("mailgun-js");
            router.get('/kk', async (req, res) => {
           await   main('kabirnajib0@gmail.com')
 
-/*
 
-let testAccount = await nodemailer.createTestAccount();
-                var transporter = nodemailer.createTransport({
-                  service: 'gmail',
-                  auth: {
-                         user: 'ridafyinfp@gmail.com',
-                         pass: 'ridafyapp2020'
-                     }
-                 });
-                    let message = {
-                      from: 'Ridafy App <verify@ridafyapp.ng>',
-                      to: 'Recipient <kabirnajib0@gmail.com>',
-                      subject: 'Account Verification',
-                      text: 'Click the link to veryfy your account',
-                      html: `<b><a href='m.me'> click here</a></b>`
-
-                  };
-
-                  transporter.sendMail(message, function (err, info) {
-                    if(err)
-                      console.log(err)
-                    else
-                      console.log(info);
-                 });
-*/
             });
+            router.get('/authmail/:id', async (req, res) => {
+       const email = await       Helper.decodedEmail(req.params.id)
+             // await   main('kabirnajib0@gmail.com')
+    return res.send(email)
+    
+                });
 
 async function main(kk) {
   var transporter = nodemailer.createTransport({
@@ -102,7 +83,7 @@ async function main(kk) {
            pass: 'ridafyapp2020'
        }
    });
-   var hashEmail = await Helper.hashPassword(kk);
+   var hashEmail = await Helper.emailToken(kk);
 
       let message = {
         from: 'Ridafy App <verify@ridafyapp.ng>',
@@ -113,7 +94,7 @@ async function main(kk) {
         </p>
         <p><b>Complete Verification<b/></p>        
         <p>If you cannot click on the link, copy and paste the following URL into a new tab in your browser:<p>
-        <p><b><a href='m.me'> here</a></b><b>https://ridafyapp.herokuapp.com/user/authmail/${hashEmail}</b></p>`,
+        <p><b>https://ridafyapp.herokuapp.com/api/v1/auth/signup/authmail/${hashEmail}</b></p>`,
 
     };
 

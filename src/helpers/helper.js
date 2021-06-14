@@ -25,13 +25,13 @@ const generateToken = (id, role) => {
 };
 const emailToken = (email) => {
   const token = jwt.sign({
-    email,
+    email
   },
   'secret', { expiresIn: '1d' });
   return token;
 };
 
-const decodedEmail = (email) => {
+const decodedEmail = async (email) => {
   const decoded = await jwt.verify(email, 'secret');
 return decoded
 }

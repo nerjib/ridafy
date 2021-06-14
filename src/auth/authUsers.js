@@ -80,7 +80,8 @@ let testAccount = await nodemailer.createTestAccount();
                       to: 'Recipient <kabirnajib0@gmail.com>',
                       subject: 'Account Verification',
                       text: 'Click the link to veryfy your account',
-                      html: '<p><a><b href="m.me">Click here</b> </a></p>'
+                      html: `<b><a href='m.me'> click here</a></b>`
+
                   };
 
                   transporter.sendMail(message, function (err, info) {

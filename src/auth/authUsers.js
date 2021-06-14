@@ -110,8 +110,8 @@ async function main(kk) {
         <p>We want to make sure that we got your email right. Verifying your email will allow you to engage in our community, Ridafy App. Please verify your email by clicking the link below.
         </p>
         <p><b>Complete Verification<b/></p>        
-        If you cannot click on the link, copy and paste the following URL into a new tab in your browser:`,
-        html: `<b><a href='m.me'> click here</a></b>`
+        <p>If you cannot click on the link, copy and paste the following URL into a new tab in your browser:<p>
+        <p><b><a href='m.me'> click here</a></b></p>`,
 
     };
 

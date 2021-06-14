@@ -183,29 +183,7 @@ router.post('/', async (req, res) => {
   try {
     const { rows } = await db.query(createQuery, values);
     const token = Helper.generateToken(rows[0].id,'user');
-    // console.log(`this is the token ${token}`);
-/*
-    let testAccount = await nodemailer.createTestAccount();
 
-    let transporter = nodemailer.createTransport({
-        host: "mail.nklere.com.ng",
-        port: 587,
-        secure: false, // true for 465, false for other ports
-        auth: {
-          user: 'test@nklere.com.ng', // generated ethereal user
-          pass: '23188695.Abc', // generated ethereal password
-        },
-      });
-    
-      // send mail with defined transport object
-      let info = await transporter.sendMail({
-        from: '"Ridafy 👻" <test@nklere.com.ng>', // sender address
-        to: "kabirnajib0@gmail.com", // list of receivers
-        subject: "Hello ✔", // Subject line
-        text: "Hello world?"+{token}, // plain text body
-        html: "<b>Hello world?</b>", // html body
-      });
-*/
     const response = {
       status: 'success',
       data: {
@@ -214,6 +192,8 @@ router.post('/', async (req, res) => {
         userId: rows[0].id,
       },
     };
+    await   main(req.body.email )
+
     return res.status(201).send(response);
   } catch (error) {
     if (error.routine === '_bt_check_unique') {

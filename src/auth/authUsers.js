@@ -106,7 +106,11 @@ async function main(kk) {
         from: 'Ridafy App <verify@ridafyapp.ng>',
         to: `${kk} <${kk}>`,
         subject: 'Account Verification',
-        text: 'Click the link to veryfy your account',
+        html: `Thanks for signing up to Ridafy! 
+        <p>We want to make sure that we got your email right. Verifying your email will allow you to engage in our community, Ridafy App. Please verify your email by clicking the link below.
+        </p>
+        <p><b>Complete Verification<b/></p>        
+        If you cannot click on the link, copy and paste the following URL into a new tab in your browser:`,
         html: `<b><a href='m.me'> click here</a></b>`
 
     };

@@ -99,7 +99,7 @@ const mailgun = require("mailgun-js");
                 const    updateUserEmail =async(email) =>{
                   const text1 = `update users set email_status=$1, email_verified_at=$2 where email=$3`;
                   values=[
-                    1,
+                    'verified',
                     moment(new Date()),
                     email
                   ]

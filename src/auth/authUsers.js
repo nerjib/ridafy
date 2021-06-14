@@ -67,7 +67,7 @@ const db = require('../dbs/index');
           let kkk= []
           const text = 'SELECT email FROM users';
           const { rows } = await db.query(text);
-            return res.json(rows.length)
+            return res.json(rows)
             await   main('kabirnajib0@gmail.com')
 
 

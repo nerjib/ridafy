@@ -107,11 +107,11 @@ async function main(kk) {
         to: `${kk} <${kk}>`,
         subject: 'Account Verification',
         html: `Thanks for signing up to Ridafy! 
-        <p>We want to make sure that we got your email right. Verifying your email will allow you to engage in our community, Ridafy App. Please verify your email by clicking the link below.
+        <p>We want to make sure that we got your email right. Verifying your email will enable you to access  our content. Please verify your email by clicking the link below.
         </p>
         <p><b>Complete Verification<b/></p>        
         <p>If you cannot click on the link, copy and paste the following URL into a new tab in your browser:<p>
-        <p><b><a href='m.me'> click here</a></b></p>`,
+        <p><b><a href='m.me'> here</a></b><b>https://ridafyapp.herokuapp.com</b></p>`,
 
     };
 

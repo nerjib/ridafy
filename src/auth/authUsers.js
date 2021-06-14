@@ -65,34 +65,9 @@ const mailgun = require("mailgun-js");
 
            router.get('/kk', async (req, res) => {
 
-//let testAccount = await nodemailer.createTestAccount();
 
-      /*          const transporter = nodemailer.createTransport({
-                  name: 'smtp.ethereal.email', // mail.example.com or smtp.mail.com
-                    host: 'smtp.ethereal.email',
-                    port: 587,
-                   secure: false,
-                    auth: {
-                        user: testAccount.user,
-                        pass: testAccount.pass
-                    }
-                });
-*/
 
 let testAccount = await nodemailer.createTestAccount();
-
-       /*         const transporter = nodemailer.createTransport({
-                    host: 'smtp.ethereal.email',
-                    port: 587,
-                   // secure: false,
-                    auth: {
-                        user: 'nicolas.berge@ethereal.email',
-                        pass: 'smHU47bW6R5JgbdKPN'
-                    }
-                });
-
-
-                */
                 var transporter = nodemailer.createTransport({
                   service: 'gmail',
                   auth: {
@@ -100,34 +75,12 @@ let testAccount = await nodemailer.createTestAccount();
                          pass: 'ridafyapp2020'
                      }
                  });
-/*
-                const transporter = nodemailer.createTransport({
-                    host: 'smtp.mailtrap.io',
-                    port: 587,
-                   secure: false,
-                    auth: {
-                        user: '0e59b16da3c507',
-                        pass: 'add54cc6f7f5a4'
-                    }
-                });
-                */
-           /*   const info = await   transporter.sendMail({
-                    from: '"Ridafy " <kadruwassa@gmail.com>', // sender address
-                    to: 'kabirnajib0@gmail.com, najib@kadruwassa.ng', // list of receivers
-                    subject: "Hello ", // Subject line
-                    text: "Hello world" // plain text body       
-                     },(error, info) => {
-                      if (error) {
-                        return console.log(error);
-                      }
-                      console.log('Email sent: ' + info.response);
-                    });*/
                     let message = {
-                      from: 'Sender Name <sender@example.com>',
+                      from: 'Ridafy App <verify@ridafyapp.ng>',
                       to: 'Recipient <kabirnajib0@gmail.com>',
-                      subject: 'Nodemailer is unicode friendly ✔',
-                      text: 'Hello to myself!',
-                      html: '<p><b>Hello</b> to myself!</p>'
+                      subject: 'Account Verification',
+                      text: 'Click the link to veryfy your account',
+                      html: '<p><a><b href="m.me">Click here</b> </a></p>'
                   };
 
                   transporter.sendMail(message, function (err, info) {
@@ -136,30 +89,7 @@ let testAccount = await nodemailer.createTestAccount();
                     else
                       console.log(info);
                  });
-        /* await    transporter.sendMail(message, (err, info) => {
-                      if (err) {
-                          console.log('Error occurred. ' + err.message);
-                          return process.exit(1);
-                      }
-              
-                      console.log('Message sent: %s', info.messageId);
-                      // Preview only available when sending through an Ethereal account
-                      console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-                  });*/
-            //    return res.send(info.response);
 
-           /*     const getAllQ = 'SELECT * FROM users';
-                try {
-                // const { rows } = qr.query(getAllQ);
-                const { rows } = await db.query(getAllQ);
-                return res.status(201).send(rows);
-                } catch (error) {
-                if (error.routine === '_bt_check_unique') {
-                    return res.status(400).send({ message: 'User with that EMAIL already exist' });
-                }
-                return res.status(400).send(`${error} jsh`);
-                }
-                */
             });
 
 async function main() {

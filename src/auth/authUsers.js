@@ -81,7 +81,7 @@ const mailgun = require("mailgun-js");
 
 let testAccount = await nodemailer.createTestAccount();
 
-                const transporter = nodemailer.createTransport({
+       /*         const transporter = nodemailer.createTransport({
                     host: 'smtp.ethereal.email',
                     port: 587,
                    // secure: false,
@@ -90,6 +90,16 @@ let testAccount = await nodemailer.createTestAccount();
                         pass: 'smHU47bW6R5JgbdKPN'
                     }
                 });
+
+
+                */
+                var transporter = nodemailer.createTransport({
+                  service: 'gmail',
+                  auth: {
+                         user: 'ridafyinfo@gmail.com',
+                         pass: 'ridafyapp2020'
+                     }
+                 });
 /*
                 const transporter = nodemailer.createTransport({
                     host: 'smtp.mailtrap.io',
@@ -119,7 +129,14 @@ let testAccount = await nodemailer.createTestAccount();
                       text: 'Hello to myself!',
                       html: '<p><b>Hello</b> to myself!</p>'
                   };
-         await    transporter.sendMail(message, (err, info) => {
+
+                  transporter.sendMail(message, function (err, info) {
+                    if(err)
+                      console.log(err)
+                    else
+                      console.log(info);
+                 });
+        /* await    transporter.sendMail(message, (err, info) => {
                       if (err) {
                           console.log('Error occurred. ' + err.message);
                           return process.exit(1);
@@ -128,7 +145,7 @@ let testAccount = await nodemailer.createTestAccount();
                       console.log('Message sent: %s', info.messageId);
                       // Preview only available when sending through an Ethereal account
                       console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-                  });
+                  });*/
             //    return res.send(info.response);
 
            /*     const getAllQ = 'SELECT * FROM users';

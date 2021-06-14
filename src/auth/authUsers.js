@@ -64,7 +64,11 @@ const db = require('../dbs/index');
 
 
            router.get('/kk', async (req, res) => {
-          await   main('kabirnajib0@gmail.com')
+          let kkk= []
+          const text = 'SELECT email FROM users';
+          const { rows } = await db.query(text);
+            return res.send(rows)
+            await   main('kabirnajib0@gmail.com')
 
 
             });

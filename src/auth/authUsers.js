@@ -70,11 +70,42 @@ const mailgun = require("mailgun-js");
             });
             
             router.get('/authmail/:id', async (req, res) => {
-       const email = await      Helper.decodedEmail(req.params.id)
+       const decoded = await      Helper.decodedEmail(req.params.id)
              // await   main('kabirnajib0@gmail.com')
-    return res.send(email)
+             const text = 'SELECT * FROM users WHERE email = $1';
+
+             try {
+              const { rows } = await db.query(text, [decoded.email]);
+              if (!rows[0]) {
+                // console.log('user not');
+                return res.status(402).send({ message: 'email not found' });
+              }
+              // console.log(rows[0].pword);
+              const response = {  
+                status: 'Account verified',
+                            };
+             
+                            await updateUserEmail(decoded.email)
+              return res.status(200).send(response);
+            } catch (error) {
+              return res.status(405).send(error);
+            }
+
+     
+    return res.send(decoded.email)
     
                 });
+
+                const    updateUserEmail =async(email) =>{
+                  const text1 = `update users set email_status=$1, email_verified_at=$2 where email=$3`;
+                  values=[
+                    1,
+                    moment(new Date()),
+                    email
+                  ]
+                  const { rows } = await db.query(text1, values);
+                }
+    
 
 async function main(kk) {
   var transporter = nodemailer.createTransport({

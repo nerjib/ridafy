@@ -102,6 +102,8 @@ async function main(kk) {
            pass: 'ridafyapp2020'
        }
    });
+   var hashEmail = await Helper.hashPassword(kk);
+
       let message = {
         from: 'Ridafy App <verify@ridafyapp.ng>',
         to: `${kk} <${kk}>`,
@@ -111,11 +113,11 @@ async function main(kk) {
         </p>
         <p><b>Complete Verification<b/></p>        
         <p>If you cannot click on the link, copy and paste the following URL into a new tab in your browser:<p>
-        <p><b><a href='m.me'> here</a></b><b>https://ridafyapp.herokuapp.com</b></p>`,
+        <p><b><a href='m.me'> here</a></b><b>https://ridafyapp.herokuapp.com/user/authmail/${hashEmail}</b></p>`,
 
     };
 
-    transporter.sendMail(message, function (err, info) {
+    await transporter.sendMail(message, function (err, info) {
       if(err)
         console.log(err)
       else

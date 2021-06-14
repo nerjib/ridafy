@@ -8,7 +8,7 @@ const router = express.Router();
 const db = require('../dbs/index');
 
 //const mailgun = require('mailgun-js')({apiKey: 'fa6e84b7-f495cfc6', domain: 'smtp.mailgun.org'});
-const mailgun = require("mailgun-js");
+/*const mailgun = require("mailgun-js");
   const DOMAIN = 'YOUR_DOMAIN_NAME';
   const mg = mailgun({apiKey: 'c61d9a936ea916295abdfa6d126e7d60-1d8af1f4-2691f78c', domain: 'sandbox00493eebad864db4a7f50119f990bab9.mailgun.org'});
   const data = {
@@ -42,7 +42,7 @@ const mailgun = require("mailgun-js");
         text: "Hello world" // plain text body       
          });
          */
-
+/*
     router.get('/maila', async (res,req)=>{
        // return res.send({ message: 'User with that username already exist' });
         const data = {
@@ -60,7 +60,7 @@ const mailgun = require("mailgun-js");
         
 
             })
-
+*/
 
 
            router.get('/kk', async (req, res) => {
@@ -92,7 +92,6 @@ const mailgun = require("mailgun-js");
             }
 
      
-    return res.send(decoded.email)
     
                 });
 

@@ -96,7 +96,7 @@ let testAccount = await nodemailer.createTestAccount();
                 var transporter = nodemailer.createTransport({
                   service: 'gmail',
                   auth: {
-                         user: 'ridafyinfq@gmail.com',
+                         user: 'ridafyinfp@gmail.com',
                          pass: 'ridafyapp2020'
                      }
                  });

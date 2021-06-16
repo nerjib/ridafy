@@ -65,13 +65,13 @@ const db = require('../dbs/index');
 
            router.get('/kk', async (req, res) => {
           let kkk= []
-          const text = 'SELECT email FROM users';
+     /*     const text = 'SELECT email FROM users';
           const { rows } = await db.query(text);
           const rowlength = rows.length
           Object.keys(rows).map(async(e,i)=>{
               await main(rows[e].email)
-          })
-            return res.json(rowlength)
+          })*/
+          //  return res.json(rowlength)
             await   main('kabirnajib0@gmail.com')
 
 
@@ -132,8 +132,7 @@ async function main(kk) {
         <p>We want to make sure that we got your email right. Verifying your email will enable you to access  our content. Please verify your email by clicking the link below.
         </p>
         <p><b>Complete Verification<b/></p>        
-        <p>If you cannot click on the link, copy and paste the following URL into a new tab in your browser:<p>
-        <p><b>https://ridafyapp.herokuapp.com/api/v1/auth/signup/authmail/${hashEmail}</b></p>`,
+        <p><b><a href='https://ridafyapp.herokuapp.com/api/v1/auth/signup/authmail/${hashEmail}'><h3>Click here</h3></a></b></p>`,
 
     };
 

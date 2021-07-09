@@ -22,6 +22,8 @@ const WishLists = require('./src/controllers/whishlists')
 const Ratings = require('./src/controllers/ratings')
 const Reciters = require('./src/controllers/reciters')
 const Reviews = require('./src/controllers/reviews')
+const States = require('./src/controllers/states')
+
 //const upload = require('./src/controllers/multer')
 //const cloudinary = require('./src/controllers/cloudinary')
 //const fs = require('fs');
@@ -147,6 +149,7 @@ app.use('/api/v1/wishlists',Auth.verifyToken, WishLists)
 app.use('/api/v1/ratings', Auth.verifyToken,Ratings)
 app.use('/api/v1/reciters',Auth.verifyToken, Reciters)
 app.use('/api/v1/reviews', Auth.verifyToken,Reviews)
+app.use('api/v1/states', States)
 
 
 
@@ -172,7 +175,6 @@ app.post('/hhh',(req,res)=>{
 app.get('/',(req,res)=>{
     res.send('welcome to ridafy')
 })
-
 
 
 /*

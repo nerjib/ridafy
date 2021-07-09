@@ -149,7 +149,7 @@ app.use('/api/v1/wishlists',Auth.verifyToken, WishLists)
 app.use('/api/v1/ratings', Auth.verifyToken,Ratings)
 app.use('/api/v1/reciters',Auth.verifyToken, Reciters)
 app.use('/api/v1/reviews', Auth.verifyToken,Reviews)
-app.use('api/v1/states', States)
+app.use('/api/v1/states', States)
 
 
 
